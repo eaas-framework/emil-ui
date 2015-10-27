@@ -1,0 +1,16 @@
+<p>EMiL schlägt ihnen für “{{chooseEnvCtrl.objecttitle}}” folge Umgebung vor:</p>
+<p><b>{{chooseEnvCtrl.environments[0].label}}</b></p>
+<button type="button" class="btn btn-primary" ui-sref="wf-b.emulator({envId:chooseEnvCtrl.environments[0].id})">Mit Vorschlag starten</button>
+<br><br><br><br>
+
+<form name="chooseEnvCtrl.altEnvForm">
+    <p>Sie möchten “{{chooseEnvCtrl.objecttitle}}” lieber in einer anderen Umgebung starten?</p>
+    <ui-select id="chooseCustomEnvSelect" ng-model="chooseEnvCtrl.custom_env" theme="bootstrap" style="width: 315px;" title="Choose a country" required>
+        <ui-select-match placeholder="Wählen oder suchen sie eine Umgebung...">{{$select.selected.label}}</ui-select-match>
+        <ui-select-choices repeat="env in chooseEnvCtrl.environments | filter: $select.search">
+            <span ng-bind-html="env.label | highlight: $select.search"></span>
+        </ui-select-choices>
+    </ui-select>
+
+    <button type="submit" class="btn btn-default" ui-sref="wf-b.emulator({envId:chooseEnvCtrl.custom_env.id})" ng-disabled="!chooseEnvCtrl.altEnvForm.$valid">mit Auswahl starten</button>
+</form>

@@ -1,0 +1,16 @@
+<iframe id="emulator-iframe" ng-src="{{startEmuCtrl.iframeurl}}" frameborder="0" seamless="seamless"></iframe>
+
+<script type="application/javascript">
+    // listen to size change messages from the iframe
+    window.addEventListener("message", function(message) {
+        var iframe = document.getElementById("emulator-iframe");
+
+        if (message.origin !== iframe.src.match(/^.+\:\/\/[^\/]+/)[0])
+            return;
+
+        if (message.data.opcode === "resize") {
+            iframe.width  = message.data.w;
+            iframe.height = message.data.h;
+        }
+    }, false);
+</script>
