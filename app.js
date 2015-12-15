@@ -6,8 +6,9 @@
 		});
 	};
 
-	var baseUrl = "http://132.230.3.212:8080/emil/Emil/";
+	var baseUrl = "http://132.230.4.15:8080/emil/Emil/";
 	var loadEnvsUrl = baseUrl + "loadEnvs?objectId={0}";
+	var metadataUrl = baseUrl + "getObjectMetadata?objectId={0}";
 	var initUrl = baseUrl + "init?objectId={0}&envId={1}";
 	var stopUrl = baseUrl + "stop?sessionId={0}";
 
@@ -35,8 +36,11 @@
 				url: "/wf-b?objectId",
 				templateUrl: "partials/wf-b/base.html",
 				resolve: {
-					objAndEnvsData: function($stateParams, $http) {
+					objEnvironments: function($stateParams, $http) {
 						return $http.get(formatStr(loadEnvsUrl, $stateParams.objectId));
+					},
+					objMetadata : function($stateParams, $http) {
+						return $http.get(formatStr(metadataUrl, $stateParams.objectId));
 					}
 				},
 				controller: function($uibModal) {
@@ -54,16 +58,16 @@
 				views: {
 					'wizard': {
 						templateUrl: 'partials/wf-b/choose-env.html',
-						controller: function ($scope, objAndEnvsData) {
-							this.objecttitle = objAndEnvsData.data.title;
-							this.environments = objAndEnvsData.data.environments;
+						controller: function ($scope, objMetadata, objEnvironments) {
+							this.objecttitle = objMetadata.data.title;
+							this.environments = objEnvironments.data.environments;
 						},
 						controllerAs: "chooseEnvCtrl"
 					},
 					'metadata': {
 						templateUrl: 'partials/wf-b/metadata.html',
-						controller: function ($scope, objAndEnvsData) {
-							this.metadata = objAndEnvsData.data.metadata;
+						controller: function ($scope, objMetadata) {
+							this.metadata = objMetadata.data.metadata;
 						},
 						controllerAs: "metadataCtrl"
 					}
@@ -103,8 +107,8 @@
 					},
 					'metadata': {
 						templateUrl: 'partials/wf-b/metadata.html',
-						controller: function ($scope, objAndEnvsData) {
-							this.metadata = objAndEnvsData.data.metadata;
+						controller: function ($scope, objMetadata) {
+							this.metadata = objMetadata.data.metadata;
 						},
 						controllerAs: "metadataCtrl"
 					}
