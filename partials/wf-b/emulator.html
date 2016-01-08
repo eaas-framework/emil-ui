@@ -6,22 +6,22 @@
 
 <script type="application/javascript">
 	$("html, body").addClass("wait");
-
-    // listen to size change messages from the iframe
-    window.addEventListener("message", function(message) {
-        var iframe = document.getElementById("emulator-iframe");
-
-        if (message.origin !== iframe.src.match(/^.+\:\/\/[^\/]+/)[0])
-            return;
-
-        if (message.data.opcode === "resize") {
-            iframe.width  = message.data.w;
-            iframe.height = message.data.h;
+	
+	// listen to size change messages from the iframe
+	window.addEventListener("message", function(message) {
+		var iframe = document.getElementById("emulator-iframe");
+		
+		if (message.origin !== iframe.src.match(/^.+\:\/\/[^\/]+/)[0])
+			return;
+		
+		if (message.data.opcode === "resize") {
+			iframe.width  = message.data.w;
+			iframe.height = message.data.h;
 			
 			// as soon as we get a message from the iframe show the emulator
 			$("#emulator-loading-container").hide();
 			$("#emulator-iframe").show();
 			$("html, body").removeClass("wait");
-        }
-    }, false);
+		}
+	}, false);
 </script>

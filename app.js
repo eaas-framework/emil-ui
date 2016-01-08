@@ -5,15 +5,15 @@
 			return typeof args[number] != 'undefined' ? args[number] : match;
 		});
 	};
-
+	
 	var baseUrl = "http://132.230.4.15:8080/emil/Emil/";
 	var loadEnvsUrl = baseUrl + "loadEnvs?objectId={0}";
 	var metadataUrl = baseUrl + "getObjectMetadata?objectId={0}";
 	var initUrl = baseUrl + "init?objectId={0}&envId={1}";
 	var stopUrl = baseUrl + "stop?sessionId={0}";
-
+	
 	angular.module('emilUI', ['ngSanitize', 'ngAnimate', 'ui.router', 'ui.bootstrap', 'ui.select', 'angular-growl'])
-
+	
 	.config(function($stateProvider, $urlRouterProvider, growlProvider, $httpProvider) {
 		// Add a global AJAX error handler
 		$httpProvider.interceptors.push(function($q, growl) {
@@ -25,7 +25,7 @@
 				}
 			};
 		});
-
+		
 		// For any unmatched url
 		$urlRouterProvider.otherwise("/wf-b/choose-environment");
 		//
@@ -100,7 +100,7 @@
 									}
 								});
 							};
-
+							
 							this.sessionId = initData.data.id;
 						},
 						controllerAs: "actionsCtrl"
@@ -114,7 +114,7 @@
 					}
 				}
 			});
-
+			
 			growlProvider.globalTimeToLive(5000);
 	});
 })();

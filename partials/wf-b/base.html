@@ -1,37 +1,37 @@
 <div class="main-container container">
-    <div class="row">
-        <div class="col-xs-12"><div id="header"><img height="50" src="img/logo.png" /></div></div>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-3">
-            <div class="sidebar-nav">
-                <div class="navbar navbar-default" role="navigation">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed">
-                            <span class="sr-only">Menü anzeigen</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <span class="visible-xs navbar-brand">Menu</span>
-                    </div>
-                    <div class="navbar-collapse collapse sidebar-navbar-collapse" collapse="isCollapsed">
-                        <ul class="nav navbar-nav">
-                            <li><a ng-click="baseCtrl.open()" href="">Hilfe/EMiL</a></li>
-                            <li><a ng-click="baseCtrl.open()" href="">Hilfe/Objekt</a></li>
-                            <li><a ng-click="baseCtrl.open()" href="">Feedback/Support</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div ui-view="actions"></div>
-            <div ui-view="metadata"></div>
-        </div>
-
-        <div class="col-sm-9">
-            <div ui-view="wizard"></div>
-        </div>
-    </div>
+	<div class="row">
+		<div class="col-xs-12"><div id="header"><img height="50" src="img/logo.png" /></div></div>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-3">
+			<div class="sidebar-nav">
+				<div class="navbar navbar-default" role="navigation">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed">
+							<span class="sr-only">Menü anzeigen</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<span class="visible-xs navbar-brand">Menu</span>
+					</div>
+					<div class="navbar-collapse collapse sidebar-navbar-collapse" collapse="isCollapsed">
+						<ul class="nav navbar-nav">
+							<li><a ng-click="baseCtrl.open()" href="">Hilfe/EMiL</a></li>
+							<li><a ng-click="baseCtrl.open()" href="">Hilfe/Objekt</a></li>
+							<li><a ng-click="baseCtrl.open()" href="">Feedback/Support</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+			<div ui-view="actions"></div>
+			<div ui-view="metadata"></div>
+		</div>
+		
+		<div class="col-sm-9">
+			<div ui-view="wizard"></div>
+		</div>
+	</div>
 </div>
