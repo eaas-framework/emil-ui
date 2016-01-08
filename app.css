@@ -69,3 +69,20 @@
 #chooseCustomEnvSelect {
 	margin-bottom: 7px;
 }
+
+/* ==========================================================================
+		Emulator
+   ========================================================================== */
+
+html.wait, body.wait {
+	cursor: progress !important;
+}
+
+#emulator-iframe {	
+	display: none;
+	background-color: black;
+}
+
+#emulator-loading-spinner {
+	margin: 10px 0 0 90px;
+}
