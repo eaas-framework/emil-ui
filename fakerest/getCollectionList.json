@@ -1,0 +1,20 @@
+{
+  "status": 0,
+  "media": [
+    {
+      "mediumtype": "abc",
+      "labels": [
+        "hoho",
+        "qwerty"
+      ]
+    },
+    {
+      "mediumtype": "abc",
+      "labels": [
+        "hehe",
+        "qwerty",
+        "hgr5rrr"
+      ]
+    }
+  ]
+}

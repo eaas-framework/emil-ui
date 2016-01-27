@@ -11,6 +11,8 @@
 	var metadataUrl = baseUrl + "getObjectMetadata?objectId={0}";
 	var initUrl = baseUrl + "init?objectId={0}&envId={1}";
 	var stopUrl = baseUrl + "stop?sessionId={0}";
+	var mediaCollectionURL = "fakerest/getCollectionList.json?objectId={0}&envId={1}";
+	var changeMediumURL = baseUrl + "changeMedium?sessionId={0}&label={0}";
 	
 	angular.module('emilUI', ['ngSanitize', 'ngAnimate', 'ui.router', 'ui.bootstrap', 'ui.select', 'angular-growl'])
 	
@@ -25,10 +27,10 @@
 				}
 			};
 		});
-		
+
 		// For any unmatched url
 		$urlRouterProvider.otherwise("/wf-b/choose-environment");
-		//
+
 		// Now set up the states
 		$stateProvider
 			.state('wf-b', {
@@ -39,7 +41,7 @@
 					objEnvironments: function($stateParams, $http) {
 						return $http.get(formatStr(loadEnvsUrl, $stateParams.objectId));
 					},
-					objMetadata : function($stateParams, $http) {
+					objMetadata: function($stateParams, $http) {
 						return $http.get(formatStr(metadataUrl, $stateParams.objectId));
 					}
 				},
@@ -58,7 +60,19 @@
 				views: {
 					'wizard': {
 						templateUrl: 'partials/wf-b/choose-env.html',
-						controller: function ($scope, objMetadata, objEnvironments) {
+						controller: function ($scope, objMetadata, objEnvironments, growl) {
+							if (objEnvironments.data.status !== "0") {
+								growl.error(objEnvironments.data.message, {title: 'Error ' + objEnvironments.data.status});
+								return;
+							}
+							
+							/* Uncomment when REST API works
+							if (objMetadata.data.status !== "0") {
+								growl.error(objMetadata.data.message, {title: 'Error ' + objEnvironments.data.status});
+								return;
+							}
+							*/
+							
 							this.objecttitle = objMetadata.data.title;
 							this.environments = objEnvironments.data.environments;
 						},
@@ -78,6 +92,9 @@
 				resolve: {
 					initData: function($http, $stateParams) {
 						return $http.get(formatStr(initUrl, $stateParams.objectId, $stateParams.envId));
+					},
+					mediaCollection: function($http, $stateParams) {
+						return $http.get(formatStr(mediaCollectionURL, $stateParams.objectId, $stateParams.envId));
 					}
 				},
 				views: {
@@ -90,7 +107,7 @@
 					},
 					'actions': {
 						templateUrl: 'partials/wf-b/actions.html',
-						controller: function ($scope, $http, initData, growl) {
+						controller: function ($scope, $http, $uibModal, initData, mediaCollection, growl) {
 							this.stopEmulator = function() {
 								$http.get(formatStr(stopUrl, initData.data.id)).then(function(response) {
 									if (response.data.status === "0") {
@@ -100,6 +117,29 @@
 									}
 								});
 							};
+							
+							this.openChangeMediaDialog = function() {
+								$uibModal.open({
+									animation: true,
+									templateUrl: 'partials/wf-b/change-media-dialog.html',
+									controller: function($scope) {
+										this.chosen_medium_label = null;
+										this.media = mediaCollection.data.media;
+
+										this.changeMedium = function() {
+											if (this.chosen_medium_label == null) {
+												growl.warning("Sie haben kein Medium ausgewählt..");
+												return;
+											}
+
+											$http.get(formatStr(changeMediumURL, initData.data.id, this.chosen_medium_label));
+
+											$scope.$close();
+										};
+									},
+									controllerAs: "openChangeMediaDialogCtrl"
+								});
+							}
 							
 							this.sessionId = initData.data.id;
 						},

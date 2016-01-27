@@ -1,0 +1,22 @@
+<div class="modal-header">
+	<h3 class="modal-title">Hilfe</h3>
+</div>
+
+<div class="modal-body">
+	<uib-tabset id="change-media-tabhost">
+		<uib-tab ng-repeat="medium in openChangeMediaDialogCtrl.media" heading="{{medium.mediumtype}}">
+			<form>
+				<div ng-repeat="label in medium.labels">
+					<label>
+						<input type="radio" ng-model="openChangeMediaDialogCtrl.chosen_medium_label" value="{{label}}"> {{label}}
+					</label>
+				</div>
+			</form>
+		</uib-tab>
+	</uib-tabset>
+</div>
+
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="openChangeMediaDialogCtrl.changeMedium()">Medium wechseln</button>
+	<button class="btn btn-default" type="button" ng-click="$close()">Abbrechen</button>
+</div>
