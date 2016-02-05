@@ -66,12 +66,10 @@
 								return;
 							}
 							
-							/* Uncomment when REST API works
 							if (objMetadata.data.status !== "0") {
 								growl.error(objMetadata.data.message, {title: 'Error ' + objEnvironments.data.status});
 								return;
 							}
-							*/
 							
 							this.objecttitle = objMetadata.data.title;
 							this.environments = objEnvironments.data.environments;
