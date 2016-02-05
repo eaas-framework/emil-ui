@@ -12,7 +12,7 @@
 	var initUrl = baseUrl + "init?objectId={0}&envId={1}";
 	var stopUrl = baseUrl + "stop?sessionId={0}";
 	var mediaCollectionURL = baseUrl + "getCollectionList?objectId={0}";
-	var changeMediumURL = baseUrl + "changeMedium?sessionId={0}&objectId={1}&driveId={2}&label={3}";
+	var changeMediaURL = baseUrl + "changeMedia?sessionId={0}&objectId={1}&driveId={2}&label={3}";
 	
 	angular.module('emilUI', ['ngSanitize', 'ngAnimate', 'ui.router', 'ui.bootstrap', 'ui.select', 'angular-growl'])
 	
@@ -132,7 +132,7 @@
 												return;
 											}
 
-											$http.get(formatStr(changeMediumURL, initData.data.id, $stateParams.objectId, initData.data.driveId, this.chosen_medium_label));
+											$http.get(formatStr(changeMediaURL, initData.data.id, $stateParams.objectId, initData.data.driveId, this.chosen_medium_label));
 
 											$scope.$close();
 										};
