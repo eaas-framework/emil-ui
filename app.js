@@ -11,6 +11,7 @@
 	var metadataUrl = baseUrl + "getObjectMetadata?objectId={0}";
 	var initUrl = baseUrl + "init?objectId={0}&envId={1}";
 	var stopUrl = baseUrl + "stop?sessionId={0}";
+	var screenshotUrl = baseUrl + "screenshot?sessionId={0}";
 	var mediaCollectionURL = baseUrl + "getCollectionList?objectId={0}";
 	var changeMediaURL = baseUrl + "changeMedia?sessionId={0}&objectId={1}&driveId={2}&label={3}";
 	
@@ -115,7 +116,12 @@
 									}
 								});
 							};
-							
+						
+							this.screenshot = function() {
+								 window.open(formatStr(screenshotUrl, initData.data.id), '_blank', ''); 
+							};
+
+								
 							this.openChangeMediaDialog = function() {
 								$uibModal.open({
 									animation: true,
