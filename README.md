@@ -1,4 +1,4 @@
-"# emil-ui
+# emil-ui
 Web frontend for the eaas REST backend.
 
 ## Deployment
