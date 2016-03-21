@@ -107,6 +107,8 @@
 					'actions': {
 						templateUrl: 'partials/wf-b/actions.html',
 						controller: function ($scope, $http, $uibModal, $stateParams, initData, mediaCollection, growl) {
+							this.driveId = initData.data.driveId;
+							
 							this.stopEmulator = function() {
 								$http.get(formatStr(stopUrl, initData.data.id)).then(function(response) {
 									if (response.data.status === "0") {
