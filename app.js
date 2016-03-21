@@ -112,17 +112,13 @@
 							this.driveId = initData.data.driveId;
 							
 							this.stopEmulator = function() {
-								return $http.get(localConfig.data.eaasBackendURL + formatStr(stopUrl, initData.data.id)).then(function(response) {
-									if (response.data.status === "0") {
-										growl.success(response.data.message, {title: 'Ausführung erfolgreich beendet'});
-									} else {
-										growl.error(response.data.message, {title: 'Error ' + response.data.status});
-									}
+								$http.get(localConfig.data.eaasBackendURL + formatStr(stopUrl, initData.data.id))['finally'](function() {
+									window.location = localConfig.data.stopEmulatorRedirectURL;
 								});
 							};
 							
 							this.restartEmulator = function() {
-								this.stopEmulator()['finally'](function() {
+								$http.get(localConfig.data.eaasBackendURL + formatStr(stopUrl, initData.data.id))['finally'](function() {
 									$state.reload();
 								});
 							};
