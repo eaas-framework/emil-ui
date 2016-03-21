@@ -6,14 +6,13 @@
 		});
 	};
 	
-	var baseUrl = "http://132.230.4.15:8080/emil/Emil/";
-	var loadEnvsUrl = baseUrl + "loadEnvs?objectId={0}";
-	var metadataUrl = baseUrl + "getObjectMetadata?objectId={0}";
-	var initUrl = baseUrl + "init?objectId={0}&envId={1}";
-	var stopUrl = baseUrl + "stop?sessionId={0}";
-	var screenshotUrl = baseUrl + "screenshot?sessionId={0}";
-	var mediaCollectionURL = baseUrl + "getCollectionList?objectId={0}";
-	var changeMediaURL = baseUrl + "changeMedia?sessionId={0}&objectId={1}&driveId={2}&label={3}";
+	var loadEnvsUrl = "loadEnvs?objectId={0}";
+	var metadataUrl = "getObjectMetadata?objectId={0}";
+	var initUrl = "init?objectId={0}&envId={1}";
+	var stopUrl = "stop?sessionId={0}";
+	var screenshotUrl = "screenshot?sessionId={0}";
+	var mediaCollectionURL = "getCollectionList?objectId={0}";
+	var changeMediaURL = "changeMedia?sessionId={0}&objectId={1}&driveId={2}&label={3}";
 	
 	angular.module('emilUI', ['ngSanitize', 'ngAnimate', 'ui.router', 'ui.bootstrap', 'ui.select', 'angular-growl'])
 	
@@ -39,11 +38,14 @@
 				url: "/wf-b?objectId",
 				templateUrl: "partials/wf-b/base.html",
 				resolve: {
-					objEnvironments: function($stateParams, $http) {
-						return $http.get(formatStr(loadEnvsUrl, $stateParams.objectId));
+					localConfig: function($http) {
+						return $http.get("config.json");
 					},
-					objMetadata: function($stateParams, $http) {
-						return $http.get(formatStr(metadataUrl, $stateParams.objectId));
+					objEnvironments: function($stateParams, $http, localConfig) {
+						return $http.get(localConfig.data.eaasBackendURL + formatStr(loadEnvsUrl, $stateParams.objectId));
+					},
+					objMetadata: function($stateParams, $http, localConfig) {
+						return $http.get(localConfig.data.eaasBackendURL + formatStr(metadataUrl, $stateParams.objectId));
 					}
 				},
 				controller: function($uibModal) {
@@ -89,11 +91,11 @@
 			.state('wf-b.emulator', {
 				url: "/emulator?envId",
 				resolve: {
-					initData: function($http, $stateParams) {
-						return $http.get(formatStr(initUrl, $stateParams.objectId, $stateParams.envId));
+					initData: function($http, $stateParams, localConfig) {
+						return $http.get(localConfig.data.eaasBackendURL + formatStr(initUrl, $stateParams.objectId, $stateParams.envId));
 					},
-					mediaCollection: function($http, $stateParams) {
-						return $http.get(formatStr(mediaCollectionURL, $stateParams.objectId));
+					mediaCollection: function($http, $stateParams, localConfig) {
+						return $http.get(localConfig.data.eaasBackendURL + formatStr(mediaCollectionURL, $stateParams.objectId));
 					}
 				},
 				views: {
@@ -106,11 +108,11 @@
 					},
 					'actions': {
 						templateUrl: 'partials/wf-b/actions.html',
-						controller: function ($scope, $state, $http, $uibModal, $stateParams, initData, mediaCollection, growl) {
+						controller: function ($scope, $state, $http, $uibModal, $stateParams, initData, mediaCollection, growl, localConfig) {
 							this.driveId = initData.data.driveId;
 							
 							this.stopEmulator = function() {
-								return $http.get(formatStr(stopUrl, initData.data.id)).then(function(response) {
+								return $http.get(localConfig.data.eaasBackendURL + formatStr(stopUrl, initData.data.id)).then(function(response) {
 									if (response.data.status === "0") {
 										growl.success(response.data.message, {title: 'Ausführung erfolgreich beendet'});
 									} else {
@@ -126,7 +128,7 @@
 							};
 						
 							this.screenshot = function() {
-								 window.open(formatStr(screenshotUrl, initData.data.id), '_blank', ''); 
+								 window.open(localConfig.data.eaasBackendURL + formatStr(screenshotUrl, initData.data.id), '_blank', ''); 
 							};
 
 								
@@ -144,7 +146,7 @@
 												return;
 											}
 
-											$http.get(formatStr(changeMediaURL, initData.data.id, $stateParams.objectId, initData.data.driveId, this.chosen_medium_label));
+											$http.get(localConfig.data.eaasBackendURL + formatStr(changeMediaURL, initData.data.id, $stateParams.objectId, initData.data.driveId, this.chosen_medium_label));
 
 											$scope.$close();
 										};
