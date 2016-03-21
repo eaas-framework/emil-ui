@@ -126,25 +126,37 @@
 							this.screenshot = function() {
 								 window.open(localConfig.data.eaasBackendURL + formatStr(screenshotUrl, initData.data.id), '_blank', ''); 
 							};
-
-								
+							
+							var currentMediumLabel = mediaCollection.data.media.length > 0 ? mediaCollection.data.media[0].labels[0] : null;
+							
 							this.openChangeMediaDialog = function() {
 								$uibModal.open({
 									animation: true,
 									templateUrl: 'partials/wf-b/change-media-dialog.html',
 									controller: function($scope) {
-										this.chosen_medium_label = null;
+										this.chosen_medium_label = currentMediumLabel;
 										this.media = mediaCollection.data.media;
+										this.isChangeMediaSubmitting = false;
 
-										this.changeMedium = function() {
-											if (this.chosen_medium_label == null) {
+										this.changeMedium = function(newMediumLabel) {
+											if (newMediumLabel == null) {
 												growl.warning("Sie haben kein Medium ausgewählt..");
 												return;
 											}
-
-											$http.get(localConfig.data.eaasBackendURL + formatStr(changeMediaURL, initData.data.id, $stateParams.objectId, initData.data.driveId, this.chosen_medium_label));
-
-											$scope.$close();
+											
+											this.isChangeMediaSubmitting = true;
+											$("html, body").addClass("wait");
+											$http.get(localConfig.data.eaasBackendURL + formatStr(changeMediaURL, initData.data.id, $stateParams.objectId, initData.data.driveId, newMediumLabel)).then(function(resp) {
+												if (resp.data.status === "0") {
+													growl.success("Das Medium wird auf " + newMediumLabel + " gewechselt.");
+													currentMediumLabel = newMediumLabel;
+													$scope.$close();
+												} else {
+													growl.error("Das Medium konnte nicht gewechselt werden.", {title: "Error"});
+												}
+											})['finally'](function() {
+												$("html, body").removeClass("wait");
+											});
 										};
 									},
 									controllerAs: "openChangeMediaDialogCtrl"

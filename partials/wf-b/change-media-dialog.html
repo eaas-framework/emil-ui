@@ -17,6 +17,6 @@
 </div>
 
 <div class="modal-footer">
-	<button class="btn btn-primary" type="button" ng-click="openChangeMediaDialogCtrl.changeMedium()">Medium wechseln</button>
+	<button class="btn btn-primary" type="button" ng-click="openChangeMediaDialogCtrl.changeMedium(openChangeMediaDialogCtrl.chosen_medium_label); " ng-disabled="openChangeMediaDialogCtrl.isChangeMediaSubmitting">Medium wechseln</button>
 	<button class="btn btn-default" type="button" ng-click="$close()">Abbrechen</button>
 </div>
