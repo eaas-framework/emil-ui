@@ -106,16 +106,22 @@
 					},
 					'actions': {
 						templateUrl: 'partials/wf-b/actions.html',
-						controller: function ($scope, $http, $uibModal, $stateParams, initData, mediaCollection, growl) {
+						controller: function ($scope, $state, $http, $uibModal, $stateParams, initData, mediaCollection, growl) {
 							this.driveId = initData.data.driveId;
 							
 							this.stopEmulator = function() {
-								$http.get(formatStr(stopUrl, initData.data.id)).then(function(response) {
+								return $http.get(formatStr(stopUrl, initData.data.id)).then(function(response) {
 									if (response.data.status === "0") {
 										growl.success(response.data.message, {title: 'Ausführung erfolgreich beendet'});
 									} else {
 										growl.error(response.data.message, {title: 'Error ' + response.data.status});
 									}
+								});
+							};
+							
+							this.restartEmulator = function() {
+								this.stopEmulator()['finally'](function() {
+									$state.reload();
 								});
 							};
 						
