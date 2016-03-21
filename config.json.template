@@ -1,4 +1,4 @@
 {
-  eaasBackendURL: 'http://132.230.4.15:8080/emil/Emil/',
-  stopEmulatorRedirectURL: 'http://bw-fla.uni-freiburg.de/'
+  "eaasBackendURL": "http://132.230.4.15:8080/emil/Emil/",
+  "stopEmulatorRedirectURL": "http://bw-fla.uni-freiburg.de/"
 }
