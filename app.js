@@ -18,12 +18,11 @@
 	
 	.config(function($stateProvider, $urlRouterProvider, growlProvider, $httpProvider) {
 		// Add a global AJAX error handler
-		$httpProvider.interceptors.push(function($q, growl) {
+		$httpProvider.interceptors.push(function($q, $injector) {
 			return {
 				responseError: function(rejection) {
-					growl.error('Momentant ist der EMiL Server leider nicht erreichbar..', {title: 'Error ' + rejection.status});
-					// TODO redirect to error page
-					// return $q.reject(rejection);
+					$injector.get('$state').go('error', {errorMsg: {title: "Server Error", message: rejection}});
+					return $q.reject(rejection);
 				}
 			};
 		});
@@ -33,6 +32,17 @@
 
 		// Now set up the states
 		$stateProvider
+			.state('error', {
+				url: "/error",
+				templateUrl: "partials/error.html",
+				params: {
+					errorMsg: {title: "", message: ""}
+				},
+				controller: function($stateParams) {
+					this.errorMsg = $stateParams.errorMsg;
+				},
+				controllerAs: "errorCtrl"
+			})
 			.state('wf-b', {
 				abstract: true,
 				url: "/wf-b?objectId",
@@ -63,14 +73,14 @@
 				views: {
 					'wizard': {
 						templateUrl: 'partials/wf-b/choose-env.html',
-						controller: function ($scope, objMetadata, objEnvironments, growl) {
+						controller: function ($scope, $state, objMetadata, objEnvironments, growl) {
 							if (objEnvironments.data.status !== "0") {
-								growl.error(objEnvironments.data.message, {title: 'Error ' + objEnvironments.data.status});
+								$state.go('error', {errorMsg: {title: "Environments Error " + objEnvironments.data.status, message: objEnvironments.data.message}});
 								return;
 							}
 							
 							if (objMetadata.data.status !== "0") {
-								growl.error(objMetadata.data.message, {title: 'Error ' + objEnvironments.data.status});
+								$state.go('error', {errorMsg: {title: "Metadata Error " + objMetadata.data.status, message: objMetadata.data.message}});
 								return;
 							}
 							
