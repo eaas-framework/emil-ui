@@ -2,15 +2,15 @@
 	<div class="row">
 		<div class="col-xs-12"><div id="header"><img height="50" src="img/logo.png" /></div></div>
 	</div>
-	
+
 	<div class="row">
 		<div id="error-panel" class="panel panel-default">
 			<div class="panel-body">
 				<div id="error-panel" class="alert alert-danger" role="alert">
 					{{errorCtrl.errorMsg.title}}
 				</div>
-				
-				<p>{{errorCtrl.errorMsg.message}}</p>
+
+				<pre>{{errorCtrl.errorMsg.message | json}}</pre>
 			</div>
 		</div>
 	</div>
