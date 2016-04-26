@@ -173,6 +173,17 @@
 								});
 							}
 							
+							this.openChangeMediaNativeDialog = function() {
+								$uibModal.open({
+									animation: true,
+									templateUrl: 'partials/wf-b/change-media-native-dialog.html',
+									controller: function($scope) {
+										this.helpmsg = initData.data.helpmsg;
+									},
+									controllerAs: "openChangeMediaNativeDialogCtrl"
+								});
+							}
+							
 							this.sessionId = initData.data.id;
 						},
 						controllerAs: "actionsCtrl"
