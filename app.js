@@ -8,7 +8,7 @@
 	
 	var loadEnvsUrl = "loadEnvs?objectId={0}";
 	var metadataUrl = "getObjectMetadata?objectId={0}";
-	var initUrl = "init?objectId={0}&envId={1}";
+	var startEnvWithDigitalObjectUrl = "startEnvWithDigitalObject?objectId={0}&envId={1}";
 	var stopUrl = "stop?sessionId={0}";
 	var screenshotUrl = "screenshot?sessionId={0}";
 	var mediaCollectionURL = "getCollectionList?objectId={0}";
@@ -102,7 +102,7 @@
 				url: "/emulator?envId",
 				resolve: {
 					initData: function($http, $stateParams, localConfig) {
-						return $http.get(localConfig.data.eaasBackendURL + formatStr(initUrl, $stateParams.objectId, $stateParams.envId));
+						return $http.get(localConfig.data.eaasBackendURL + formatStr(startEnvWithDigitalObjectUrl, $stateParams.objectId, $stateParams.envId));
 					},
 					mediaCollection: function($http, $stateParams, localConfig) {
 						return $http.get(localConfig.data.eaasBackendURL + formatStr(mediaCollectionURL, $stateParams.objectId));
