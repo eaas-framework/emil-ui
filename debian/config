@@ -1,0 +1,13 @@
+#!/bin/sh
+ 
+# Exit on error
+set -e
+ 
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+db_input critical emil-ui/eaas-backend-url || true
+db_go
+
+db_input critical emil-ui/stop-redirection-url || true
+db_go

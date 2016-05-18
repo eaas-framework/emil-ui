@@ -1,0 +1,17 @@
+Template: emil-ui/eaas-backend-url
+Type: string
+Default: http://localhost:8080/emil/Emil/
+Description: EaaS backend URL
+ This is the "backend" URL of the EMiL EaaS web service backend.
+ If you are running emil-ui from a different server than
+ the EaaS backend or have configured the backend to be reachable
+ by another IP address or path, you must change the backend
+ URL here.
+
+Template: emil-ui/stop-redirection-url
+Type: string
+Default: http://bw-fla.uni-freiburg.de
+Description: Emulator stop redirection URL
+ When the emulator stops, the frontend redirects to a URL. If you
+ want to give your own landing page, you can change this redirection
+ URL here.

@@ -1,0 +1,5 @@
+emil-ui (20160518-1) unstable; urgency=medium
+
+  * Initial release as a debian package.
+
+ -- Thomas Liebetraut <thomas@idefix>  Wed, 18 May 2016 19:10:46 +0200

@@ -1,0 +1,11 @@
+#!/usr/bin/dh-exec
+
+*.css           usr/share/emil-ui
+*.js            usr/share/emil-ui
+*.html          usr/share/emil-ui
+favicon.ico     usr/share/emil-ui
+img             usr/share/emil-ui
+partials        usr/share/emil-ui
+vendor          usr/share/emil-ui
+
+debian/apache2-site.conf => etc/apache2/sites-available/emil-ui.conf
