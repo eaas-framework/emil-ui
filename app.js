@@ -58,13 +58,26 @@
 						return $http.get(localConfig.data.eaasBackendURL + formatStr(metadataUrl, $stateParams.objectId));
 					}
 				},
-				controller: function($uibModal) {
-					this.open = function() {
+				controller: function($uibModal, objMetadata) {
+					function showHelpDialog(helpText) {
 						$uibModal.open({
 							animation: true,
-							templateUrl: 'partials/wf-b/help-emil-dialog.html'
+							templateUrl: 'partials/wf-b/help-emil-dialog.html',
+							controller: function($scope) {
+								this.helpText = helpText;
+							},
+							controllerAs: "helpDialogCtrl"
 						});
 					}
+					
+					this.open = function() {
+						showHelpDialog("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor " +
+											   "invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.");
+					};
+											   
+					this.showObjectHelpDialog = function() {
+						showHelpDialog(objMetadata.help);
+					};
 				},
 				controllerAs: "baseCtrl"
 			})
