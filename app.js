@@ -92,6 +92,11 @@
 								return;
 							}
 							
+							if (objEnvironments.data.environments.length === 0) {
+								$state.go('error', {errorMsg: {title: "Environments Error", message: "Leider konnten keine Umgebungen zu diesem Objekt gefunden werden.."}});
+								return;
+							}
+							
 							if (objMetadata.data.status !== "0") {
 								$state.go('error', {errorMsg: {title: "Metadata Error " + objMetadata.data.status, message: objMetadata.data.message}});
 								return;
