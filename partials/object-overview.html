@@ -1,0 +1,17 @@
+<div class="main-container container">
+	<div class="row"><div class="col-xs-12"><div id="header"><img height="50" src="img/logo.png" /></div></div></div>
+	
+	<div class="row">
+		<div id="object-grid-container" class="panel panel-default">
+			<div class="panel-body">
+				<h3 class="m-t-0">Objekte</h3> <br>
+				
+				<div ng-repeat="object in objectOverviewCtrl.objectList" class="object-container">
+					<a class="cover-container" ui-sref="wf-b.choose-env({objectId: object.id})"><img class="cover" src="img/dummy-cdrom{{$index % 3 + 1}}.jpg"></img></a>
+					<a class="title-container" ui-sref="wf-b.choose-env({objectId: object.id})"><span class="title">{{object.title}}</span></a>
+					<div class="description" ng-bind="object.description" data-ellipsis></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

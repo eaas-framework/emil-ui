@@ -14,7 +14,7 @@
 	var mediaCollectionURL = "getCollectionList?objectId={0}";
 	var changeMediaURL = "changeMedia?sessionId={0}&objectId={1}&driveId={2}&label={3}";
 	
-	angular.module('emilUI', ['angular-loading-bar', 'ngSanitize', 'ngAnimate', 'ui.router', 'ui.bootstrap', 'ui.select', 'angular-growl'])
+	angular.module('emilUI', ['angular-loading-bar', 'ngSanitize', 'ngAnimate', 'ui.router', 'ui.bootstrap', 'ui.select', 'angular-growl', 'dibari.angular-ellipsis'])
 	
 	.config(function($stateProvider, $urlRouterProvider, growlProvider, $httpProvider) {
 		// Add a global AJAX error handler
@@ -28,7 +28,7 @@
 		});
 
 		// For any unmatched url
-		$urlRouterProvider.otherwise("/wf-b/choose-environment");
+		$urlRouterProvider.otherwise("/object-overview");
 
 		// Now set up the states
 		$stateProvider
@@ -42,6 +42,40 @@
 					this.errorMsg = $stateParams.errorMsg;
 				},
 				controllerAs: "errorCtrl"
+			})
+			.state('object-overview', {
+				url: "/object-overview",
+				templateUrl: "partials/object-overview.html",
+				resolve: {
+					objectList: function($http) {
+						return {
+							data: {
+								"status": "0",
+								"objects": [
+									{"id": "SMARTY", "title": "Smarty Object", "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."},
+									{"id": "SMARTY", "title": "Dummy Object1", "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."},
+									{"id": "SMARTY", "title": "Dummy Object2", "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."},
+									{"id": "SMARTY", "title": "Dummy Object3", "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."},
+									{"id": "SMARTY", "title": "Dummy Object4", "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."},
+									{"id": "SMARTY", "title": "Dummy Object5", "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."},
+									{"id": "SMARTY", "title": "Dummy Object6", "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."},
+									{"id": "SMARTY", "title": "Dummy Object7", "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."},
+									{"id": "SMARTY", "title": "Dummy Object8", "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."},
+									{"id": "SMARTY", "title": "Dummy Object9", "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."},
+									{"id": "SMARTY", "title": "Dummy Object10", "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."},
+									{"id": "SMARTY", "title": "Dummy Object11", "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."},
+									{"id": "SMARTY", "title": "Dummy Object Very Very Long Title", "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."}
+								]
+							}
+						};
+					}
+				},
+				controller: function($stateParams, objectList) {
+					var vm = this;
+					
+					vm.objectList = objectList.data.objects;
+				},
+				controllerAs: "objectOverviewCtrl"
 			})
 			.state('wf-b', {
 				abstract: true,
