@@ -65,10 +65,10 @@
 							$state.go('wf-b.choose-env', {objectId: $itemScope.object.id});
 						}],
 						null, // Dividier
-						['bearbeiten', function ($itemScope) {
+						['Bearbeiten', function ($itemScope) {
 							alert("TBD");
 						}],
-						['details', function ($itemScope) {
+						['Details', function ($itemScope) {
 							alert("TBD");
 						}]
 					];
