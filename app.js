@@ -13,8 +13,9 @@
 	var screenshotUrl = "screenshot?sessionId={0}";
 	var mediaCollectionURL = "getCollectionList?objectId={0}";
 	var changeMediaURL = "changeMedia?sessionId={0}&objectId={1}&driveId={2}&label={3}";
+	var getObjectListURL = "getObjectList";
 	
-	angular.module('emilUI', ['angular-loading-bar', 'ngSanitize', 'ngAnimate', 'ui.router', 'ui.bootstrap', 'ui.select', 'angular-growl', 'dibari.angular-ellipsis'])
+	angular.module('emilUI', ['angular-loading-bar', 'ngSanitize', 'ngAnimate', 'ui.router', 'ui.bootstrap', 'ui.select', 'angular-growl', 'dibari.angular-ellipsis', 'ui.bootstrap.contextMenu'])
 	
 	.config(function($stateProvider, $urlRouterProvider, growlProvider, $httpProvider) {
 		// Add a global AJAX error handler
@@ -47,33 +48,27 @@
 				url: "/object-overview",
 				templateUrl: "partials/object-overview.html",
 				resolve: {
-					objectList: function($http) {
-						return {
-							data: {
-								"status": "0",
-								"objects": [
-									{"id": "SMARTY", "title": "Smarty Object", "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."},
-									{"id": "SMARTY", "title": "Dummy Object1", "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."},
-									{"id": "SMARTY", "title": "Dummy Object2", "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."},
-									{"id": "SMARTY", "title": "Dummy Object3", "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."},
-									{"id": "SMARTY", "title": "Dummy Object4", "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."},
-									{"id": "SMARTY", "title": "Dummy Object5", "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."},
-									{"id": "SMARTY", "title": "Dummy Object6", "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."},
-									{"id": "SMARTY", "title": "Dummy Object7", "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."},
-									{"id": "SMARTY", "title": "Dummy Object8", "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."},
-									{"id": "SMARTY", "title": "Dummy Object9", "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."},
-									{"id": "SMARTY", "title": "Dummy Object10", "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."},
-									{"id": "SMARTY", "title": "Dummy Object11", "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."},
-									{"id": "SMARTY", "title": "Dummy Object Very Very Long Title", "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore."}
-								]
-							}
-						};
+					localConfig: function($http) {
+						return $http.get("config.json");
+					},
+					objectList: function($http, localConfig) {
+						return $http.get(localConfig.data.eaasBackendURL + getObjectListURL);
 					}
 				},
-				controller: function($stateParams, objectList) {
+				controller: function($state, $stateParams, objectList) {
 					var vm = this;
 					
 					vm.objectList = objectList.data.objects;
+					
+					vm.menuOptions = [
+						['Objekt öffnen', function ($itemScope) {							
+							$state.go('wf-b.choose-env', {objectId: $itemScope.object.id});
+						}],
+						null, // Dividier
+						['Details anzeigen', function ($itemScope) {
+							alert("TBD");
+						}]
+					];
 				},
 				controllerAs: "objectOverviewCtrl"
 			})
