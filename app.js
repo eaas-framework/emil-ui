@@ -66,7 +66,7 @@
 						}],
 						null, // Dividier
 						['Bearbeiten', function ($itemScope) {
-							alert("TBD");
+							window.location.href = "/emil-admin-ui/#/wf-s/edit-object-characterization?objectId=" + $itemScope.object.id;
 						}],
 						['Details', function ($itemScope) {
 							alert("TBD");
