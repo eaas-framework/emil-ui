@@ -45,7 +45,10 @@
 			
 			CHANGEM_TITLE: 'Change media',
 			CHANGEM_OK: 'OK',
-			CHANGEM_CANCEL: 'Cancel'
+			CHANGEM_CANCEL: 'Cancel',
+			
+			EMU_TITLE: 'Preparing emulation session',
+			METADATA_L: 'Metadata'
 		});
 
 		// De
@@ -71,7 +74,10 @@
 
 			CHANGEM_TITLE: 'Medienwechsel',
 			CHANGEM_OK: 'Medium wechseln',
-			CHANGEM_CANCEL: 'Abbrechen'
+			CHANGEM_CANCEL: 'Abbrechen',
+
+			EMU_TITLE: 'Das Emulationsystem wird gestartet...',
+			METADATA_L: 'Metadaten'
 
 		});
 

@@ -1,5 +1,5 @@
 <div class="panel panel-default" ng-show="metadataCtrl.metadata == true">
-	<div class="panel-heading">Metadaten</div>
+	<div class="panel-heading">{{'METADATA_L' | translate: metadataCtrl}}</div>
 	<div class="panel-body" >
 		<div ng-repeat="metadatapoint in metadataCtrl.metadata">
 			<b>{{metadatapoint.label}}</b>
