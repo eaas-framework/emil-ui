@@ -15,9 +15,36 @@
 	var changeMediaURL = "changeMedia?sessionId={0}&objectId={1}&driveId={2}&label={3}";
 	var getObjectListURL = "getObjectList";
 	
-	angular.module('emilUI', ['angular-loading-bar', 'ngSanitize', 'ngAnimate', 'ui.router', 'ui.bootstrap', 'ui.select', 'angular-growl', 'dibari.angular-ellipsis', 'ui.bootstrap.contextMenu'])
+	angular.module('emilUI', ['angular-loading-bar', 'ngSanitize', 'ngAnimate', 'ui.router', 'ui.bootstrap', 'ui.select', 'angular-growl', 'dibari.angular-ellipsis', 'ui.bootstrap.contextMenu', 'pascalprecht.translate'])
 	
-	.config(function($stateProvider, $urlRouterProvider, growlProvider, $httpProvider) {
+	.config(function($stateProvider, $urlRouterProvider, growlProvider, $httpProvider, $translateProvider) {
+		/*
+		 * Internationalization 
+		 */
+
+		// German
+		$translateProvider.translations('en', {
+			CHOOSE_ENV_PROPOSAL: 'EMiL proposes for “{{objecttitle}}” these environments:',
+			CHOOSE_ENV_BTN_PROPOSAL: 'Launch with proposal'
+		});
+
+		// English
+		$translateProvider.translations('de', {
+			CHOOSE_ENV_PROPOSAL: 'EMiL schlägt ihnen für “{{objecttitle}}” folge Umgebung vor:',
+			CHOOSE_ENV_BTN_PROPOSAL: 'Mit Vorschlag starten'
+		});
+
+		// escape HTML in the translation
+		$translateProvider.useSanitizeValueStrategy('escape');
+
+		$translateProvider.registerAvailableLanguageKeys(['en', 'de'], {
+		'en_*': 'en',
+		'de_*': 'de'
+		})
+
+		// automatically choose best language for user
+		$translateProvider.determinePreferredLanguage();
+
 		// Add a global AJAX error handler
 		$httpProvider.interceptors.push(function($q, $injector) {
 			return {
