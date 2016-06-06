@@ -4,7 +4,7 @@
 	<div class="row">
 		<div id="object-grid-container" class="panel panel-default">
 			<div class="panel-body">
-				<h3 class="m-t-0">Objekte</h3> <br>
+				<h3 class="m-t-0">{{'OVERVIEW_L' | translate: chooseEnvCtrl}}</h3> <br>
 				
 				<div ng-repeat="object in objectOverviewCtrl.objectList" class="object-container">
 					<a class="cover-container" ui-sref="wf-b.choose-env({objectId: object.id})" context-menu="objectOverviewCtrl.menuOptions">
