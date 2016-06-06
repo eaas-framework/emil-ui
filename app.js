@@ -45,7 +45,7 @@
 			
 			CHANGEM_TITLE: 'Change media',
 			CHANGEM_OK: 'OK',
-			CHANGE_CANCEL: 'Cancel'
+			CHANGEM_CANCEL: 'Cancel'
 		});
 
 		// De
@@ -71,7 +71,7 @@
 
 			CHANGEM_TITLE: 'Medienwechsel',
 			CHANGEM_OK: 'Medium wechseln',
-			CHANGE_CANCEL: 'Abbrechen'
+			CHANGEM_CANCEL: 'Abbrechen'
 
 		});
 
