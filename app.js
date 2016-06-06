@@ -34,7 +34,14 @@
 
 			ACTIONS_CHANGE_MEDIA: 'Change media',
 			ACTIONS_RESTART: 'Restart',
-			ACTIONS_STOP: 'Stop'
+			ACTIONS_SCREENSHOT: 'Screenshot',
+			ACTIONS_STOP: 'Stop',
+
+			BASE_SHOW_MENU: 'Show menu',
+			BASE_MENU_L: 'Menu',
+			BASE_MENU_HELP_EMIL: 'Help/EMIL',
+			BASE_MENU_HELP_OBJ: 'Help/Object',
+			BASE_MENU_FEEDB: 'Feedback/Support'
 		});
 
 		// De
@@ -47,10 +54,16 @@
 
 			OVERVIEW_L: 'Objekte',
 
-			ACTIONS_CHNAGE_MEDIA: 'Medienwechsel',
+			ACTIONS_CHANGE_MEDIA: 'Medienwechsel',
 			ACTIONS_RESTART: 'Neustarten',
-			ACTIONS_STOP: 'Beenden'
-			
+			ACTIONS_SCREENSHOT: 'Screenshot',
+			ACTIONS_STOP: 'Beenden',
+
+			BASE_SHOW_MENU: 'Menu anzeigen',
+			BASE_MENU_L: 'Menu',
+			BASE_MENU_HELP_EMIL: 'Hilfe/EMIL',
+			BASE_MENU_HELP_OBJ: 'Hilfe/Objekt',
+			BASE_MENU_FEEDB: 'Feedback/Support'
 
 		});
 
