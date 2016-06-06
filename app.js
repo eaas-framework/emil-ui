@@ -22,16 +22,22 @@
 		 * Internationalization 
 		 */
 
-		// German
+		// En
 		$translateProvider.translations('en', {
 			CHOOSE_ENV_PROPOSAL: 'EMiL proposes for “{{objecttitle}}” these environments:',
-			CHOOSE_ENV_BTN_PROPOSAL: 'Launch with proposal'
+			CHOOSE_ENV_BTN_PROPOSAL: 'Launch with proposal',
+			CHOOSE_ENV_SELECT_L: 'Start “{{chooseEnvCtrl.objecttitle}}” in a diffenet environment?',
+			CHOOSE_ENV_SELECT_PH: 'Select an environment',
+			CHOOSE_ENV_SELECT_BNT: 'run selected environment'
 		});
 
-		// English
+		// De
 		$translateProvider.translations('de', {
 			CHOOSE_ENV_PROPOSAL: 'EMiL schlägt ihnen für “{{objecttitle}}” folge Umgebung vor:',
-			CHOOSE_ENV_BTN_PROPOSAL: 'Mit Vorschlag starten'
+			CHOOSE_ENV_BTN_PROPOSAL: 'Mit Vorschlag starten',
+			CHOOSE_ENV_SELECT_L: 'Sie möchten “{{chooseEnvCtrl.objecttitle}}” lieber in einer anderen Umgebung starten?',
+			CHOOSE_ENV_SELECT_PH: 'Wählen oder suchen sie eine Umgebung...',
+			CHOOSE_ENV_SELECT_BTN: 'mit Auswahl starten'
 		});
 
 		// escape HTML in the translation
