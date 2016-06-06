@@ -41,7 +41,11 @@
 			BASE_MENU_L: 'Menu',
 			BASE_MENU_HELP_EMIL: 'Help/EMIL',
 			BASE_MENU_HELP_OBJ: 'Help/Object',
-			BASE_MENU_FEEDB: 'Feedback/Support'
+			BASE_MENU_FEEDB: 'Feedback/Support',
+			
+			CHANGEM_TITLE: 'Change media',
+			CHANGEM_OK: 'OK',
+			CHANGE_CANCEL: 'Cancel'
 		});
 
 		// De
@@ -63,7 +67,11 @@
 			BASE_MENU_L: 'Menu',
 			BASE_MENU_HELP_EMIL: 'Hilfe/EMIL',
 			BASE_MENU_HELP_OBJ: 'Hilfe/Objekt',
-			BASE_MENU_FEEDB: 'Feedback/Support'
+			BASE_MENU_FEEDB: 'Feedback/Support',
+
+			CHANGEM_TITLE: 'Medienwechsel',
+			CHANGEM_OK: 'Medium wechseln',
+			CHANGE_CANCEL: 'Abbrechen'
 
 		});
 
