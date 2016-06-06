@@ -32,6 +32,7 @@
 
 			OVERVIEW_L: 'Objects',
 
+			ACTIONS_L: 'Actions',
 			ACTIONS_CHANGE_MEDIA: 'Change media',
 			ACTIONS_RESTART: 'Restart',
 			ACTIONS_SCREENSHOT: 'Screenshot',
@@ -61,6 +62,7 @@
 
 			OVERVIEW_L: 'Objekte',
 
+			ACTIONS_L: 'Aktionen',
 			ACTIONS_CHANGE_MEDIA: 'Medienwechsel',
 			ACTIONS_RESTART: 'Neustarten',
 			ACTIONS_SCREENSHOT: 'Screenshot',
