@@ -51,7 +51,7 @@
 			EMU_TITLE: 'Preparing emulation session',
 			METADATA_L: 'Metadata',
 			
-			JS_ENV_ERROR: 'No environments found.,
+			JS_ENV_ERROR: 'No environments found.',
 			JS_MEDIA_NO_MEDIA: 'No medium chosen.', 
 			JS_MEDIA_CHANGETO: 'Changing to: ', // Das Medium wird auf " + newMediumLabel + " gewechselt.
 			JS_MEDIA_CHANGE_ERR: 'Failed changeing medium.'
