@@ -49,7 +49,13 @@
 			CHANGEM_CANCEL: 'Cancel',
 			
 			EMU_TITLE: 'Preparing emulation session',
-			METADATA_L: 'Metadata'
+			METADATA_L: 'Metadata',
+			
+			JS_ENV_ERROR: 'No environments found.,
+			JS_MEDIA_NO_MEDIA: 'No medium chosen.', 
+			JS_MEDIA_CHANGETO: 'Changing to: ', // Das Medium wird auf " + newMediumLabel + " gewechselt.
+			JS_MEDIA_CHANGE_ERR: 'Failed changeing medium.'
+
 		});
 
 		// De
@@ -79,8 +85,14 @@
 			CHANGEM_CANCEL: 'Abbrechen',
 
 			EMU_TITLE: 'Das Emulationsystem wird gestartet...',
-			METADATA_L: 'Metadaten'
+			METADATA_L: 'Metadaten',
 
+			JS_ENV_ERROR: 'Leider konnten keine Umgebungen zu diesem Objekt gefunden werden.',
+			JS_MEDIA_NO_MEDIA: 'Sie haben kein Medium ausgewählt.', 
+			JS_MEDIA_CHANGETO: 'Neues Medium: ', // Das Medium wird auf " + newMediumLabel + " gewechselt.
+			JS_MEDIA_CHANGE_ERR: 'Das Medium konnte nicht gewechselt werden.'
+			 
+			
 		});
 
 		// escape HTML in the translation
@@ -194,14 +206,14 @@
 				views: {
 					'wizard': {
 						templateUrl: 'partials/wf-b/choose-env.html',
-						controller: function ($scope, $state, objMetadata, objEnvironments, growl) {
+						controller: function ($scope, $state, objMetadata, objEnvironments, growl, $translate) {
 							if (objEnvironments.data.status !== "0") {
 								$state.go('error', {errorMsg: {title: "Environments Error " + objEnvironments.data.status, message: objEnvironments.data.message}});
 								return;
 							}
 							
 							if (objEnvironments.data.environments.length === 0) {
-								$state.go('error', {errorMsg: {title: "Environments Error", message: "Leider konnten keine Umgebungen zu diesem Objekt gefunden werden.."}});
+								$state.go('error', {errorMsg: {title: "Environments Error", message: $translate.instant('JS_ENV_ERROR')}});
 								return;
 							}
 							
@@ -244,7 +256,7 @@
 					},
 					'actions': {
 						templateUrl: 'partials/wf-b/actions.html',
-						controller: function ($scope, $state, $http, $uibModal, $stateParams, initData, mediaCollection, growl, localConfig) {
+						controller: function ($scope, $state, $http, $uibModal, $stateParams, initData, mediaCollection, growl, localConfig, $translate) {
 							this.driveId = initData.data.driveId;
 							
 							this.stopEmulator = function() {
@@ -276,7 +288,7 @@
 
 										this.changeMedium = function(newMediumLabel) {
 											if (newMediumLabel == null) {
-												growl.warning("Sie haben kein Medium ausgewählt..");
+												growl.warning($translate.instant('JS_MEDIA_NO_MEDIA'));
 												return;
 											}
 											
@@ -284,11 +296,11 @@
 											$("html, body").addClass("wait");
 											$http.get(localConfig.data.eaasBackendURL + formatStr(changeMediaURL, initData.data.id, $stateParams.objectId, initData.data.driveId, newMediumLabel)).then(function(resp) {
 												if (resp.data.status === "0") {
-													growl.success("Das Medium wird auf " + newMediumLabel + " gewechselt.");
+													growl.success($translate.instant('JS_MEDIA_CHANGETO') + newMediumLabel);
 													currentMediumLabel = newMediumLabel;
 													$scope.$close();
 												} else {
-													growl.error("Das Medium konnte nicht gewechselt werden.", {title: "Error"});
+													growl.error($translate.instant('JS_MEDIA_CHANGE_ERR'), {title: "Error"});
 												}
 											})['finally'](function() {
 												$("html, body").removeClass("wait");
