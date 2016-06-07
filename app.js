@@ -56,6 +56,9 @@
 			JS_MEDIA_CHANGETO: 'Changing to: ', // Das Medium wird auf " + newMediumLabel + " gewechselt.
 			JS_MEDIA_CHANGE_ERR: 'Failed changeing medium.'
 
+			JS_MENU_RENDER: 'Render',
+			JS_MENU_EDIT: 'Edit',
+			JS_MENU_DETAILS: 'Details'
 		});
 
 		// De
@@ -90,7 +93,12 @@
 			JS_ENV_ERROR: 'Leider konnten keine Umgebungen zu diesem Objekt gefunden werden.',
 			JS_MEDIA_NO_MEDIA: 'Sie haben kein Medium ausgewählt.', 
 			JS_MEDIA_CHANGETO: 'Neues Medium: ', // Das Medium wird auf " + newMediumLabel + " gewechselt.
-			JS_MEDIA_CHANGE_ERR: 'Das Medium konnte nicht gewechselt werden.'
+			JS_MEDIA_CHANGE_ERR: 'Das Medium konnte nicht gewechselt werden.',
+
+			JS_MENU_RENDER: 'Objekt öffnen',
+			JS_MENU_EDIT: 'Bearbeiten',
+			JS_MENU_DETAILS: 'Details'
+			
 			 
 			
 		});
@@ -143,20 +151,20 @@
 						return $http.get(localConfig.data.eaasBackendURL + getObjectListURL);
 					}
 				},
-				controller: function($state, $stateParams, objectList) {
+				controller: function($state, $stateParams, objectList, $translate) {
 					var vm = this;
 					
 					vm.objectList = objectList.data.objects;
 					
 					vm.menuOptions = [
-						['Objekt öffnen', function ($itemScope) {							
+						[$translate.instant('JS_MENU_RENDER'), function ($itemScope) {							
 							$state.go('wf-b.choose-env', {objectId: $itemScope.object.id});
 						}],
 						null, // Dividier
-						['Bearbeiten', function ($itemScope) {
+						[$translate.instant('JS_MENU_EDIT'), function ($itemScope) {
 							window.location.href = "/emil-admin-ui/#/wf-s/edit-object-characterization?objectId=" + $itemScope.object.id;
 						}],
-						['Details', function ($itemScope) {
+						[$translate.instant('JS_MENU_DETAILS'), function ($itemScope) {
 							alert("TBD");
 						}]
 					];
