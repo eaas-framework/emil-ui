@@ -8,7 +8,7 @@
 				
 				<div ng-repeat="object in objectOverviewCtrl.objectList" class="object-container">
 					<a class="cover-container" ui-sref="wf-b.choose-env({objectId: object.id})" context-menu="objectOverviewCtrl.menuOptions">
-					  <img class="cover" src="{{object.thumbnail ? object.thumbnail : 'img/empty-cover.jpg'}}"></img>
+					  <img class="cover" src="{{object.thumbnail ? object.thumbnail : 'img/empty-cover.png'}}"></img>
 					</a>
 					
 					<a class="title-container" ui-sref="wf-b.choose-env({objectId: object.id})" context-menu="objectOverviewCtrl.menuOptions">
