@@ -7,6 +7,7 @@
 	};
 	
 	var loadEnvsUrl = "loadEnvs?objectId={0}";
+	var getAllEnvsUrl = "getEmilEnvironments";
 	var metadataUrl = "getObjectMetadata?objectId={0}";
 	var startEnvWithDigitalObjectUrl = "startEnvWithDigitalObject?objectId={0}&envId={1}";
 	var stopUrl = "stop?sessionId={0}";
@@ -149,7 +150,10 @@
 					},
 					objectList: function($http, localConfig) {
 						return $http.get(localConfig.data.eaasBackendURL + getObjectListURL);
-					}
+					},
+					environmentList: function($http, localConfig) {
+                                                return $http.get(localConfig.data.eaasBackendURL + getAllEnvsUrl);
+                                        }
 				},
 				controller: function($state, $stateParams, objectList, $translate) {
 					var vm = this;
@@ -257,7 +261,11 @@
 				views: {
 					'wizard': {
 						templateUrl: "partials/wf-b/emulator.html",
-						controller: function ($scope, $sce, initData) {
+						controller: function ($scope, $sce, $state, initData, growl) {
+							if (initData.data.status === "1") {
+								$state.go('error', {errorMsg: {title: "Emulation Error " + initData.data.status, message: initData.data.message}});
+								return;
+							}
 							this.iframeurl = $sce.trustAsResourceUrl(initData.data.iframeurl);
 						},
 						controllerAs: "startEmuCtrl"
