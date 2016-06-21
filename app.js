@@ -16,7 +16,7 @@
 	var changeMediaURL = "changeMedia?sessionId={0}&objectId={1}&driveId={2}&label={3}";
 	var getObjectListURL = "getObjectList";
 	
-	angular.module('emilUI', ['angular-loading-bar', 'ngSanitize', 'ngAnimate', 'ui.router', 'ui.bootstrap', 'ui.select', 'angular-growl', 'dibari.angular-ellipsis', 'ui.bootstrap.contextMenu', 'pascalprecht.translate'])
+	angular.module('emilUI', ['angular-loading-bar', 'ngSanitize', 'ngAnimate', 'ui.router', 'ui.bootstrap', 'ui.select', 'angular-growl', 'dibari.angular-ellipsis', 'ui.bootstrap.contextMenu', 'pascalprecht.translate', 'smart-table'])
 	
 	.config(function($stateProvider, $urlRouterProvider, growlProvider, $httpProvider, $translateProvider) {
 		/*
@@ -32,6 +32,7 @@
 			CHOOSE_ENV_SELECT_BTN: 'launch with selected environment',
 
 			OVERVIEW_L: 'Objects',
+			OVERVIEW_SEARCH: 'Search...',
 
 			ACTIONS_L: 'Actions',
 			ACTIONS_CHANGE_MEDIA: 'Change media',
@@ -71,6 +72,7 @@
 			CHOOSE_ENV_SELECT_BTN: 'mit Auswahl starten',
 
 			OVERVIEW_L: 'Objekte',
+			OVERVIEW_SEARCH: 'Eintippen zum Suchen...',
 
 			ACTIONS_L: 'Aktionen',
 			ACTIONS_CHANGE_MEDIA: 'Medienwechsel',
@@ -150,10 +152,10 @@
 					},
 					objectList: function($http, localConfig) {
 						return $http.get(localConfig.data.eaasBackendURL + getObjectListURL);
-					},
+					}/*,
 					environmentList: function($http, localConfig) {
-                                                return $http.get(localConfig.data.eaasBackendURL + getAllEnvsUrl);
-                                        }
+						return $http.get(localConfig.data.eaasBackendURL + getAllEnvsUrl);
+					}*/
 				},
 				controller: function($state, $stateParams, objectList, $translate) {
 					var vm = this;
@@ -204,7 +206,7 @@
 					
 					this.open = function() {
 						showHelpDialog("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor " +
-											   "invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.");
+									     "invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.");
 					};
 											   
 					this.showObjectHelpDialog = function() {
@@ -262,10 +264,11 @@
 					'wizard': {
 						templateUrl: "partials/wf-b/emulator.html",
 						controller: function ($scope, $sce, $state, initData, growl) {
-							if (initData.data.status === "1") {
+							if (initData.data.status !== "0") {
 								$state.go('error', {errorMsg: {title: "Emulation Error " + initData.data.status, message: initData.data.message}});
 								return;
 							}
+
 							this.iframeurl = $sce.trustAsResourceUrl(initData.data.iframeurl);
 						},
 						controllerAs: "startEmuCtrl"

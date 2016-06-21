@@ -1,6 +1,7 @@
 <div class="main-container container">
 	<div class="row"><div class="col-xs-12"><div id="header"><img height="50" src="img/logo.png" /></div></div></div>
 	
+	<!--
 	<div class="row">
 		<div id="object-grid-container" class="panel panel-default">
 			<div class="panel-body">
@@ -19,7 +20,52 @@
 				</div>
 			</div>
 		</div>
+	</div>-->
+
+	<div class="row">
+		<div id="object-grid-container" class="panel panel-default">
+			<div class="panel-body">
+				<h3 class="m-t-0">{{'OVERVIEW_L' | translate: chooseEnvCtrl}}</h3> <br>
+
+				<table st-table="displayObjects" st-safe-src="objectOverviewCtrl.objectList">
+					<thead>	
+						<tr>			
+							<th colspan="5">
+								<input st-search="" class="form-control" placeholder="{{'OVERVIEW_SEARCH' | translate}}" type="text"/><br>
+							</th>
+						</tr>	
+					</thead>
+					
+					<tbody>
+						<tr>
+							<td>
+								<div ng-repeat="object in displayObjects" class="object-container">
+									<a class="cover-container" ui-sref="wf-b.choose-env({objectId: object.id})" context-menu="objectOverviewCtrl.menuOptions">
+									  <img class="cover" src="{{object.thumbnail ? object.thumbnail : 'img/empty-cover.png'}}"></img>
+									</a>
+									
+									<a class="title-container" ui-sref="wf-b.choose-env({objectId: object.id})" context-menu="objectOverviewCtrl.menuOptions">
+									  <span class="title">{{object.title}}</span>
+									</a>
+									
+									<div class="description" ng-bind="object.description" data-ellipsis></div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+					
+					<tfoot>
+						<tr>
+							<td colspan="5" class="text-center">
+								<div st-pagination="" st-items-by-page="12" st-displayed-pages="7"></div>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
 	</div>
+
 	<!--
 	<div class="row">
                 <div id="object-grid-container" class="panel panel-default">
