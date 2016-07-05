@@ -18,17 +18,6 @@
 	
 	angular.module('emilUI', ['angular-loading-bar', 'ngSanitize', 'ngAnimate', 'ui.router', 'ui.bootstrap', 'ui.select', 'angular-growl', 'dibari.angular-ellipsis', 'ui.bootstrap.contextMenu', 'pascalprecht.translate', 'smart-table'])
 
-	.component('inputList', {
-		templateUrl: 'partials/components/inputList.html',
-		bindings: {
-			list: '=',
-			heading: '@',
-			listEmptyNote: '@',
-			inputPlaceholder: '@',
-			addButtonText: '@',
-		}
-	})
-
 	.config(function($stateProvider, $urlRouterProvider, growlProvider, $httpProvider, $translateProvider) {
 		/*
 		 * Internationalization 
@@ -44,26 +33,6 @@
 
 			OVERVIEW_L: 'Objects',
 			OVERVIEW_SEARCH: 'Search...',
-
-			SW_INGEST_HEADER: 'Software Ingest',
-			SW_INGEST_CHOOSE_OBJECT: 'Choose Object',
-			SW_INGEST_CHOOSE_OBJECT_PH: 'Search or choose an object...',
-			SW_INGEST_LICENSE_LBL: 'License information',
-			SW_INGEST_LICENSE_PH: 'Enter license information...',
-			SW_INGEST_NO_INSTANCES_LBL: 'Allowed number of instances (for unlimited choose -1):',
-			SW_INGEST_FMT_NATIVE_HEADER: 'Rendering Capabilites: Native FMTs',
-			SW_INGEST_FMT_NATIVE_EMPTY: 'No Native FMTs added yet.',
-			SW_INGEST_FMT_NATIVE_PH: 'Native PUID...',
-			SW_INGEST_FMT_NATIVE_BUTTON: 'Add native PUID',
-			SW_INGEST_FMT_IMPORT_HEADER: 'Rendering Capabilites: Import FMTs',
-			SW_INGEST_FMT_IMPORT_EMPTY: 'No Import FMTs added yet.',
-			SW_INGEST_FMT_IMPORT_PH: 'Import PUID...',
-			SW_INGEST_FMT_IMPORT_BUTTON: 'Add import PUID',
-			SW_INGEST_FMT_EXPORT_HEADER: 'Rendering Capabilites: Export FMTs',
-			SW_INGEST_FMT_EXPORT_EMPTY: 'No Export FMTs added yet.',
-			SW_INGEST_FMT_EXPORT_PH: 'Export PUID...',
-			SW_INGEST_FMT_EXPORT_BUTTON: 'Add export PUID',
-			SW_INGEST_SAVE_BUTTON: 'Save',
 
 			ACTIONS_L: 'Actions',
 			ACTIONS_CHANGE_MEDIA: 'Change media',
@@ -104,26 +73,6 @@
 
 			OVERVIEW_L: 'Objekte',
 			OVERVIEW_SEARCH: 'Eintippen zum Suchen...',
-
-			SW_INGEST_HEADER: 'Software Ingest',
-			SW_INGEST_CHOOSE_OBJECT: 'Objekt auswählen',
-			SW_INGEST_CHOOSE_OBJECT_PH: 'Wählen oder suchen sie ein Objekt...',
-			SW_INGEST_LICENSE_LBL: 'Lizenzinformationen',
-			SW_INGEST_LICENSE_PH: 'Lizenzinformationen eingeben...',
-			SW_INGEST_NO_INSTANCES_LBL: 'Erlaubte Instanzanzahl (-1 für unbegrenzt)',
-			SW_INGEST_FMT_NATIVE_HEADER: 'Rendering Capabilites: Native FMTs',
-			SW_INGEST_FMT_NATIVE_EMPTY: 'No Native FMTs added yet.',
-			SW_INGEST_FMT_NATIVE_PH: 'Native PUID...',
-			SW_INGEST_FMT_NATIVE_BUTTON: 'Add native PUID',
-			SW_INGEST_FMT_IMPORT_HEADER: 'Rendering Capabilites: Import FMTs',
-			SW_INGEST_FMT_IMPORT_EMPTY: 'No Import FMTs added yet.',
-			SW_INGEST_FMT_IMPORT_PH: 'Import PUID...',
-			SW_INGEST_FMT_IMPORT_BUTTON: 'Add import PUID',
-			SW_INGEST_FMT_EXPORT_HEADER: 'Rendering Capabilites: Export FMTs',
-			SW_INGEST_FMT_EXPORT_EMPTY: 'No Export FMTs added yet.',
-			SW_INGEST_FMT_EXPORT_PH: 'Export PUID...',
-			SW_INGEST_FMT_EXPORT_BUTTON: 'Add export PUID',
-			SW_INGEST_SAVE_BUTTON: 'Speichern',
 
 			ACTIONS_L: 'Aktionen',
 			ACTIONS_CHANGE_MEDIA: 'Medienwechsel',
@@ -194,45 +143,6 @@
 					this.errorMsg = $stateParams.errorMsg;
 				},
 				controllerAs: "errorCtrl"
-			})
-			.state('software-ingest', {
-				url: "/software-ingest",
-				templateUrl: "partials/software-ingest.html",
-				resolve: {
-					localConfig: function($http) {
-						return $http.get("config.json");
-					},
-					objectList: function($http, localConfig) {
-						return $http.get(localConfig.data.eaasBackendURL + getObjectListURL);
-					}
-				},
-				controller: function($state, $stateParams, objectList) {
-					var vm = this;
-
-					vm.selectedObject = null;
-					vm.objectList = objectList.data.objects;
-
-					vm.nativeFMTs = [];
-					vm.importFMTs = [];
-					vm.exportFMTs = [];
-
-					vm.allowedInstances = 1;
-
-					vm.save = function() {
-						var result = {
-							objectId: vm.selectedObject.id,
-							licenseInformation: vm.license,
-							allowedInstances: vm.allowedInstances,
-							nativeFMTs: vm.nativeFMTs,
-							importFMTs: vm.importFMTs,
-							exportFMTs: vm.exportFMTs,
-						};
-
-						console.log(JSON.stringify(result));
-						// TODO save to REST
-					};
-				},
-				controllerAs: "softwareIngestCtrl"
 			})
 			.state('object-overview', {
 				url: "/object-overview",
