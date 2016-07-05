@@ -5,7 +5,7 @@
 
 <form name="chooseEnvCtrl.altEnvForm">
 	<p>{{'CHOOSE_ENV_SELECT_L' | translate: chooseEnvCtrl}}</p>
-	<div style="width: 315px;">
+	<div style="max-width: 375px;">
 		<ui-select id="chooseCustomEnvSelect" ng-model="chooseEnvCtrl.custom_env" theme="bootstrap" title="{{'CHOOSE_ENV_SELECT_PH' | translate}}" required>
 			<ui-select-match placeholder="{{'CHOOSE_ENV_SELECT_PH' | translate}}">{{$select.selected.label}}</ui-select-match>
 			<ui-select-choices repeat="env in chooseEnvCtrl.environments | filter: $select.search">
