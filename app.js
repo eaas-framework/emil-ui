@@ -200,7 +200,7 @@
 				templateUrl: "partials/software-ingest.html",
 				resolve: {
 					localConfig: function($http) {
-						return $http.get("config.json");
+						return $http.get("config.json" + '?id=' + new Date().getTime());
 					},
 					objectList: function($http, localConfig) {
 						return $http.get(localConfig.data.eaasBackendURL + getObjectListURL);
