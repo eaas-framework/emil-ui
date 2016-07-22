@@ -9,6 +9,13 @@
 	
 	// listen to size change messages from the iframe
 	window.addEventListener("message", function(message) {
+
+		if(message.data.opcode === "error") {
+			$("#emulator-loading-container").hide();
+			$("#emulator-iframe").show();
+			$("html, body").removeClass("wait");
+		}
+
 		var iframe = document.getElementById("emulator-iframe");
 		
 		if (message.origin !== iframe.src.match(/^.+\:\/\/[^\/]+/)[0])
