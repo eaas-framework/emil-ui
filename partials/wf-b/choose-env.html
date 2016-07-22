@@ -5,12 +5,14 @@
 
 <form name="chooseEnvCtrl.altEnvForm">
 	<p>{{'CHOOSE_ENV_SELECT_L' | translate: chooseEnvCtrl}}</p>
-	<ui-select id="chooseCustomEnvSelect" ng-model="chooseEnvCtrl.custom_env" theme="bootstrap" style="width: 315px;" title="{{'CHOOSE_ENV_SELECT_PH' | translate}}" required>
-		<ui-select-match placeholder="{{'CHOOSE_ENV_SELECT_PH' | translate}}">{{$select.selected.label}}</ui-select-match>
-		<ui-select-choices repeat="env in chooseEnvCtrl.environments | filter: $select.search">
-			<span ng-bind-html="env.label | highlight: $select.search"></span>
-		</ui-select-choices>
-	</ui-select>
+	<div style="max-width: 375px;">
+		<ui-select id="chooseCustomEnvSelect" ng-model="chooseEnvCtrl.custom_env" theme="bootstrap" title="{{'CHOOSE_ENV_SELECT_PH' | translate}}" required>
+			<ui-select-match placeholder="{{'CHOOSE_ENV_SELECT_PH' | translate}}">{{$select.selected.label}}</ui-select-match>
+			<ui-select-choices repeat="env in chooseEnvCtrl.environments | filter: $select.search">
+				<span ng-bind-html="env.label | highlight: $select.search"></span>
+			</ui-select-choices>
+		</ui-select>
+	</div>
 	
 	<button type="submit" class="btn btn-default" ui-sref="wf-b.emulator({envId:chooseEnvCtrl.custom_env.id})" ng-disabled="!chooseEnvCtrl.altEnvForm.$valid">{{'CHOOSE_ENV_SELECT_BTN' | translate}}</button>
 </form>
