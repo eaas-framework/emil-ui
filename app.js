@@ -16,7 +16,8 @@
 	var changeMediaURL = "changeMedia?sessionId={0}&objectId={1}&driveId={2}&label={3}";
 	var getObjectListURL = "getObjectList";
 	
-	angular.module('emilUI', ['angular-loading-bar', 'ngSanitize', 'ngAnimate', 'ui.router', 'ui.bootstrap', 'ui.select', 'angular-growl', 'dibari.angular-ellipsis', 'ui.bootstrap.contextMenu', 'pascalprecht.translate', 'smart-table'])
+	angular.module('emilUI', ['angular-loading-bar', 'ngSanitize', 'ngAnimate', 'ui.router', 'ui.bootstrap', 'ui.select', 'angular-growl', 'dibari.angular-ellipsis', 'ui.bootstrap.contextMenu', 
+				   'pascalprecht.translate', 'smart-table', 'angular-page-visibility'])
 
 	.config(function($stateProvider, $urlRouterProvider, growlProvider, $httpProvider, $translateProvider) {
 		/*
@@ -60,7 +61,9 @@
 
 			JS_MENU_RENDER: 'Render',
 			JS_MENU_EDIT: 'Edit',
-			JS_MENU_DETAILS: 'Details'
+			JS_MENU_DETAILS: 'Details',
+			
+			JS_EMU_LEAVE_PAGE: 'If you don\'t return to this page within 3 min the emulator instance will be closed automatically.'
 		});
 
 		// De
@@ -100,10 +103,9 @@
 
 			JS_MENU_RENDER: 'Objekt öffnen',
 			JS_MENU_EDIT: 'Bearbeiten',
-			JS_MENU_DETAILS: 'Details'
+			JS_MENU_DETAILS: 'Details',
 			
-			 
-			
+			JS_EMU_LEAVE_PAGE: 'Wenn sie nicht innerhalb der nächsten 3 Minuten auf diese Seite zurückkehren, wird der Emulator automatisch geschlossen.'			
 		});
 
 		// escape HTML in the translation
@@ -276,28 +278,30 @@
 					},
 					'actions': {
 						templateUrl: 'partials/wf-b/actions.html',
-						controller: function ($scope, $state, $http, $uibModal, $stateParams, initData, mediaCollection, growl, localConfig, $translate) {
-							this.driveId = initData.data.driveId;
+						controller: function ($scope, $window, $state, $http, $timeout, $uibModal, $stateParams, initData, mediaCollection, growl, localConfig, $translate, $pageVisibility) {
+							var vm = this;
 							
-							this.stopEmulator = function() {
+							vm.driveId = initData.data.driveId;
+							
+							vm.stopEmulator = function() {
 								$http.get(localConfig.data.eaasBackendURL + formatStr(stopUrl, initData.data.id))['finally'](function() {
 									window.location = localConfig.data.stopEmulatorRedirectURL;
 								});
 							};
 							
-							this.restartEmulator = function() {
+							vm.restartEmulator = function() {
 								$http.get(localConfig.data.eaasBackendURL + formatStr(stopUrl, initData.data.id))['finally'](function() {
 									$state.reload();
 								});
 							};
 						
-							this.screenshot = function() {
+							vm.screenshot = function() {
 								 window.open(localConfig.data.eaasBackendURL + formatStr(screenshotUrl, initData.data.id), '_blank', ''); 
 							};
 							
 							var currentMediumLabel = mediaCollection.data.media.length > 0 ? mediaCollection.data.media[0].labels[0] : null;
 							
-							this.openChangeMediaDialog = function() {
+							vm.openChangeMediaDialog = function() {
 								$uibModal.open({
 									animation: true,
 									templateUrl: 'partials/wf-b/change-media-dialog.html',
@@ -331,7 +335,7 @@
 								});
 							}
 							
-							this.openChangeMediaNativeDialog = function() {
+							vm.openChangeMediaNativeDialog = function() {
 								$uibModal.open({
 									animation: true,
 									templateUrl: 'partials/wf-b/change-media-native-dialog.html',
@@ -342,7 +346,30 @@
 								});
 							}
 							
-							this.sessionId = initData.data.id;
+							vm.sessionId = initData.data.id;
+							
+							var closeEmulatorOnTabLeaveTimer = null;
+							var leaveWarningShownBefore = false;
+							
+							var deregisterOnPageFocused = $pageVisibility.$on('pageFocused', function() {								
+								$timeout.cancel(closeEmulatorOnTabLeaveTimer);
+							});
+
+							var deregisterOnPageBlurred = $pageVisibility.$on('pageBlurred', function() {
+								if (!leaveWarningShownBefore) {
+									$window.alert($translate.instant('JS_EMU_LEAVE_PAGE'));
+									leaveWarningShownBefore = true;
+								}
+								
+								closeEmulatorOnTabLeaveTimer = $timeout(function() {
+									vm.stopEmulator();
+								}, 3 * 60 * 1000);
+							});
+							
+							$scope.$on("$destroy", function() {
+								deregisterOnPageFocused();
+								deregisterOnPageBlurred();
+							});
 						},
 						controllerAs: "actionsCtrl"
 					},
