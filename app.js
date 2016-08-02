@@ -7,7 +7,7 @@
 	};
 	
 	var loadEnvsUrl = "loadEnvs?objectId={0}";
-	var getAllEnvsUrl = "getEmilEnvironments";
+	var getAllEnvsUrl = "getAllEnvironments";
 	var metadataUrl = "getObjectMetadata?objectId={0}";
 	var startEnvWithDigitalObjectUrl = "startEnvWithDigitalObject?objectId={0}&envId={1}";
 	var stopUrl = "stop?sessionId={0}";
@@ -26,6 +26,7 @@
 		// En
 		$translateProvider.translations('en', {
 			CHOOSE_ENV_PROPOSAL: 'EMiL suggests for “{{objecttitle}}”:',
+			CHOOSE_ENV_NOPROPOSAL: 'Could not determine a suitable environment. Please choose one.',
 			CHOOSE_ENV_BTN_PROPOSAL: 'Launch with suggestion',
 			CHOOSE_ENV_SELECT_L: 'Start “{{objecttitle}}” in a different environment?',
 			CHOOSE_ENV_SELECT_PH: 'Select an environment',
@@ -66,6 +67,7 @@
 		// De
 		$translateProvider.translations('de', {
 			CHOOSE_ENV_PROPOSAL: 'EMiL schlägt ihnen für “{{objecttitle}}” folge Umgebung vor:',
+			CHOOSE_ENV_PROPOSAL: 'Die automatische Charakterisierung konnte keine passende Umgebung finden. Bitte wählen Sie eine Umgebung.',
 			CHOOSE_ENV_BTN_PROPOSAL: 'Mit Vorschlag starten',
 			CHOOSE_ENV_SELECT_L: 'Sie möchten “{{objecttitle}}” lieber in einer anderen Umgebung starten?',
 			CHOOSE_ENV_SELECT_PH: 'Wählen oder suchen sie eine Umgebung...',
@@ -191,6 +193,9 @@
 					},
 					objMetadata: function($stateParams, $http, localConfig) {
 						return $http.get(localConfig.data.eaasBackendURL + formatStr(metadataUrl, $stateParams.objectId));
+					},
+					allEnvironments: function($stateParams, $http, localConfig) {
+						return $http.get(localConfig.data.eaasBackendURL + getAllEnvsUrl);
 					}
 				},
 				controller: function($uibModal, objMetadata) {
@@ -221,15 +226,11 @@
 				views: {
 					'wizard': {
 						templateUrl: 'partials/wf-b/choose-env.html',
-						controller: function ($scope, $state, objMetadata, objEnvironments, growl, $translate) {
-							if (objEnvironments.data.status !== "0") {
-								$state.go('error', {errorMsg: {title: "Environments Error " + objEnvironments.data.status, message: objEnvironments.data.message}});
-								return;
-							}
+						controller: function ($scope, $state, objMetadata, objEnvironments, allEnvironments, growl, $translate) {
+							this.noSuggestion = false;
 							
-							if (objEnvironments.data.environments.length === 0) {
-								$state.go('error', {errorMsg: {title: "Environments Error", message: $translate.instant('JS_ENV_ERROR')}});
-								return;
+							if (objEnvironments.data.status !== "0" || objEnvironments.data.environments.length === 0) {
+								this.noSuggestion = true;
 							}
 							
 							if (objMetadata.data.status !== "0") {
@@ -238,7 +239,17 @@
 							}
 							
 							this.objecttitle = objMetadata.data.title;
-							this.environments = objEnvironments.data.environments;
+							
+							if(this.noSuggestion)
+							{
+								if(allEnvironments.data.status === "0")
+									this.environments = allEnvironments.data.environments;
+								else 
+									$state.go('error', {errorMsg: {title: "Environments Error " + objEnvironments.data.status, message: objEnvironments.data.message}});
+									
+							}
+							else
+								this.environments = objEnvironments.data.environments;
 						},
 						controllerAs: "chooseEnvCtrl"
 					},
