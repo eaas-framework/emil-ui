@@ -7,6 +7,7 @@
 	};
 	
 	var loadEnvsUrl = "loadEnvs?objectId={0}";
+	var getEmilEnvironmentUrl = "getEmilEnvironment?envId={0}";
 	var getAllEnvsUrl = "getAllEnvironments";
 	var metadataUrl = "getObjectMetadata?objectId={0}";
 	var startEnvWithDigitalObjectUrl = "startEnvWithDigitalObject?objectId={0}&envId={1}";
@@ -37,6 +38,7 @@
 			OVERVIEW_SEARCH: 'Search...',
 
 			ACTIONS_L: 'Actions',
+			ACTIONS_HELP: 'Help',
 			ACTIONS_CHANGE_MEDIA: 'Change media',
 			ACTIONS_RESTART: 'Restart',
 			ACTIONS_SCREENSHOT: 'Screenshot',
@@ -80,6 +82,7 @@
 			OVERVIEW_SEARCH: 'Eintippen zum Suchen...',
 
 			ACTIONS_L: 'Aktionen',
+			ACTIONS_HELP: 'Hilfe', 
 			ACTIONS_CHANGE_MEDIA: 'Medienwechsel',
 			ACTIONS_RESTART: 'Neustarten',
 			ACTIONS_SCREENSHOT: 'Screenshot',
@@ -270,6 +273,9 @@
 					initData: function($http, $stateParams, localConfig) {
 						return $http.get(localConfig.data.eaasBackendURL + formatStr(startEnvWithDigitalObjectUrl, $stateParams.objectId, $stateParams.envId));
 					},
+					chosenEnv: function($http, $stateParams, localConfig) {
+						return $http.get(localConfig.data.eaasBackendURL + formatStr(getEmilEnvironmentUrl, $stateParams.envId));
+					},
 					mediaCollection: function($http, $stateParams, localConfig) {
 						return $http.get(localConfig.data.eaasBackendURL + formatStr(mediaCollectionURL, $stateParams.objectId));
 					}
@@ -289,8 +295,23 @@
 					},
 					'actions': {
 						templateUrl: 'partials/wf-b/actions.html',
-						controller: function ($scope, $window, $state, $http, $timeout, $uibModal, $stateParams, initData, mediaCollection, growl, localConfig, $translate, $pageVisibility) {
+						controller: function ($scope, $window, $state, $http, $timeout, $uibModal, $stateParams, initData, mediaCollection, growl, localConfig, $translate, $pageVisibility, chosenEnv) {
 							var vm = this;
+							
+							function showHelpDialog(helpText) {
+								$uibModal.open({
+									animation: true,
+									templateUrl: 'partials/wf-b/help-emil-dialog.html',
+									controller: function($scope) {
+										this.helpText = helpText;
+									},
+									controllerAs: "helpDialogCtrl"
+								});
+							}
+							
+							vm.help = function() {
+								showHelpDialog(chosenEnv.data.helpText);
+							};
 							
 							vm.driveId = initData.data.driveId;
 							

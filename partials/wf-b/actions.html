@@ -2,6 +2,7 @@
 	<div id="actionsHeading" class="panel-heading">{{'ACTIONS_L' | translate}}</div>
 
 	<div id="actionsBtnGroup" class="btn-group-vertical" role="group">
+		<button type="submit" class="btn btn-default" ng-click="actionsCtrl.help()">{{'ACTIONS_HELP' | translate}}</button>
 		<button type="submit" class="btn btn-default" ng-click="actionsCtrl.openChangeMediaDialog()" ng-show="actionsCtrl.driveId >= 0">{{'ACTIONS_CHANGE_MEDIA' | translate}}</button>
 		<button type="submit" class="btn btn-default" ng-click="actionsCtrl.openChangeMediaNativeDialog()" ng-show="actionsCtrl.driveId == -1">{{'ACTIONS_CHANGE_MEDIA' | translate}}</button>
 		<button type="submit" class="btn btn-default" ng-click="actionsCtrl.screenshot()">{{'ACTIONS_SCREENSHOT' | translate}}</button>
