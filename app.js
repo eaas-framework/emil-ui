@@ -35,7 +35,7 @@
 		$translateProvider.registerAvailableLanguageKeys(['en', 'de'], {
 		  'en_*': 'en',
 		  'de_*': 'de'
-		})
+		});
 
 		// automatically choose best language for user
 		$translateProvider.determinePreferredLanguage();
