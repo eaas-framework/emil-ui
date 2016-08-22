@@ -1,0 +1,40 @@
+{
+  "CHOOSE_ENV_PROPOSAL" : "EMiL suggests for “{{objecttitle}}”:",
+  "CHOOSE_ENV_NOPROPOSAL" : "Could not determine a suitable environment. Please choose one.",
+  "CHOOSE_ENV_BTN_PROPOSAL" : "Launch with suggestion",
+  "CHOOSE_ENV_SELECT_L" : "Start “{{objecttitle}}” in a different environment?",
+  "CHOOSE_ENV_SELECT_PH" : "Select an environment",
+  "CHOOSE_ENV_SELECT_BTN" : "launch with selected environment",
+
+  "OVERVIEW_L" : "Objects",
+  "OVERVIEW_SEARCH" : "Search...",
+
+  "ACTIONS_L" : "Actions",
+  "ACTIONS_HELP" : "Help",
+  "ACTIONS_CHANGE_MEDIA" : "Change media",
+  "ACTIONS_RESTART" : "Restart",
+  "ACTIONS_SCREENSHOT" : "Screenshot",
+  "ACTIONS_STOP" : "Stop",
+
+  "BASE_SHOW_MENU" : "Show menu",
+  "BASE_MENU_L" : "Menu",
+  "BASE_MENU_HELP_EMIL" : "Help/EMIL",
+  "BASE_MENU_HELP_OBJ" : "Help/Object",
+  "BASE_MENU_FEEDB" : "Feedback/Support",
+
+  "CHANGEM_TITLE" : "Change media",
+  "CHANGEM_OK" : "OK",
+  "CHANGEM_CANCEL" : "Cancel",
+
+  "EMU_TITLE" : "Preparing emulation session",
+  "METADATA_L" : "Metadata",
+  
+  "JS_ENV_ERROR" : "No environments found.",
+  "JS_MEDIA_NO_MEDIA" : "No medium chosen.",
+  "JS_MEDIA_CHANGETO" : "Changing to: ",
+  "JS_MEDIA_CHANGE_ERR" : "Failed changeing medium.",
+  "JS_MENU_RENDER" : "Render",
+  "JS_MENU_EDIT" : "Edit",
+  "JS_MENU_DETAILS" : "Details",
+  "JS_EMU_LEAVE_PAGE" : "If you don't return to this page within 3 min the emulator instance will be closed automatically."
+}

@@ -24,101 +24,17 @@
 		/*
 		 * Internationalization 
 		 */
-
-		// En
-		$translateProvider.translations('en', {
-			CHOOSE_ENV_PROPOSAL: 'EMiL suggests for “{{objecttitle}}”:',
-			CHOOSE_ENV_NOPROPOSAL: 'Could not determine a suitable environment. Please choose one.',
-			CHOOSE_ENV_BTN_PROPOSAL: 'Launch with suggestion',
-			CHOOSE_ENV_SELECT_L: 'Start “{{objecttitle}}” in a different environment?',
-			CHOOSE_ENV_SELECT_PH: 'Select an environment',
-			CHOOSE_ENV_SELECT_BTN: 'launch with selected environment',
-
-			OVERVIEW_L: 'Objects',
-			OVERVIEW_SEARCH: 'Search...',
-
-			ACTIONS_L: 'Actions',
-			ACTIONS_HELP: 'Help',
-			ACTIONS_CHANGE_MEDIA: 'Change media',
-			ACTIONS_RESTART: 'Restart',
-			ACTIONS_SCREENSHOT: 'Screenshot',
-			ACTIONS_STOP: 'Stop',
-
-			BASE_SHOW_MENU: 'Show menu',
-			BASE_MENU_L: 'Menu',
-			BASE_MENU_HELP_EMIL: 'Help/EMIL',
-			BASE_MENU_HELP_OBJ: 'Help/Object',
-			BASE_MENU_FEEDB: 'Feedback/Support',
-			
-			CHANGEM_TITLE: 'Change media',
-			CHANGEM_OK: 'OK',
-			CHANGEM_CANCEL: 'Cancel',
-			
-			EMU_TITLE: 'Preparing emulation session',
-			METADATA_L: 'Metadata',
-			
-			JS_ENV_ERROR: 'No environments found.',
-			JS_MEDIA_NO_MEDIA: 'No medium chosen.', 
-			JS_MEDIA_CHANGETO: 'Changing to: ', // Das Medium wird auf " + newMediumLabel + " gewechselt.
-			JS_MEDIA_CHANGE_ERR: 'Failed changeing medium.',
-
-			JS_MENU_RENDER: 'Render',
-			JS_MENU_EDIT: 'Edit',
-			JS_MENU_DETAILS: 'Details',
-			
-			JS_EMU_LEAVE_PAGE: 'If you don\'t return to this page within 3 min the emulator instance will be closed automatically.'
-		});
-
-		// De
-		$translateProvider.translations('de', {
-			CHOOSE_ENV_PROPOSAL: 'EMiL schlägt ihnen für “{{objecttitle}}” folge Umgebung vor:',
-			CHOOSE_ENV_PROPOSAL: 'Die automatische Charakterisierung konnte keine passende Umgebung finden. Bitte wählen Sie eine Umgebung.',
-			CHOOSE_ENV_BTN_PROPOSAL: 'Mit Vorschlag starten',
-			CHOOSE_ENV_SELECT_L: 'Sie möchten “{{objecttitle}}” lieber in einer anderen Umgebung starten?',
-			CHOOSE_ENV_SELECT_PH: 'Wählen oder suchen sie eine Umgebung...',
-			CHOOSE_ENV_SELECT_BTN: 'mit Auswahl starten',
-
-			OVERVIEW_L: 'Objekte',
-			OVERVIEW_SEARCH: 'Eintippen zum Suchen...',
-
-			ACTIONS_L: 'Aktionen',
-			ACTIONS_HELP: 'Hilfe', 
-			ACTIONS_CHANGE_MEDIA: 'Medienwechsel',
-			ACTIONS_RESTART: 'Neustarten',
-			ACTIONS_SCREENSHOT: 'Screenshot',
-			ACTIONS_STOP: 'Beenden',
-
-			BASE_SHOW_MENU: 'Menu anzeigen',
-			BASE_MENU_L: 'Menu',
-			BASE_MENU_HELP_EMIL: 'Hilfe/EMIL',
-			BASE_MENU_HELP_OBJ: 'Hilfe/Objekt',
-			BASE_MENU_FEEDB: 'Feedback/Support',
-
-			CHANGEM_TITLE: 'Medienwechsel',
-			CHANGEM_OK: 'Medium wechseln',
-			CHANGEM_CANCEL: 'Abbrechen',
-
-			EMU_TITLE: 'Das Emulationsystem wird gestartet...',
-			METADATA_L: 'Metadaten',
-
-			JS_ENV_ERROR: 'Leider konnten keine Umgebungen zu diesem Objekt gefunden werden.',
-			JS_MEDIA_NO_MEDIA: 'Sie haben kein Medium ausgewählt.', 
-			JS_MEDIA_CHANGETO: 'Neues Medium: ', // Das Medium wird auf " + newMediumLabel + " gewechselt.
-			JS_MEDIA_CHANGE_ERR: 'Das Medium konnte nicht gewechselt werden.',
-
-			JS_MENU_RENDER: 'Objekt öffnen',
-			JS_MENU_EDIT: 'Bearbeiten',
-			JS_MENU_DETAILS: 'Details',
-			
-			JS_EMU_LEAVE_PAGE: 'Wenn sie nicht innerhalb der nächsten 3 Minuten auf diese Seite zurückkehren, wird der Emulator automatisch geschlossen.'			
+		$translateProvider.useStaticFilesLoader({
+			prefix: 'locales/',
+			suffix: '.json'
 		});
 
 		// escape HTML in the translation
 		$translateProvider.useSanitizeValueStrategy('escape');
 
 		$translateProvider.registerAvailableLanguageKeys(['en', 'de'], {
-		'en_*': 'en',
-		'de_*': 'de'
+		  'en_*': 'en',
+		  'de_*': 'de'
 		})
 
 		// automatically choose best language for user
