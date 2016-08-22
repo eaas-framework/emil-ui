@@ -1,8 +1,8 @@
 {
-  "CHOOSE_ENV_PROPOSAL" : "EMiL suggests for ì{{objecttitle}}î:",
+  "CHOOSE_ENV_PROPOSAL" : "EMiL suggests for ‚Äú{{objecttitle}}‚Äù:",
   "CHOOSE_ENV_NOPROPOSAL" : "Could not determine a suitable environment. Please choose one.",
   "CHOOSE_ENV_BTN_PROPOSAL" : "Launch with suggestion",
-  "CHOOSE_ENV_SELECT_L" : "Start ì{{objecttitle}}î in a different environment?",
+  "CHOOSE_ENV_SELECT_L" : "Start ‚Äú{{objecttitle}}‚Äù in a different environment?",
   "CHOOSE_ENV_SELECT_PH" : "Select an environment",
   "CHOOSE_ENV_SELECT_BTN" : "launch with selected environment",
 
