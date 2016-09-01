@@ -1,5 +1,6 @@
 {
-  "CHOOSE_ENV_PROPOSAL" : "Die automatische Charakterisierung konnte keine passende Umgebung finden. Bitte wählen Sie eine Umgebung.",
+  "CHOOSE_ENV_NOPROPOSAL" : "Die automatische Charakterisierung konnte keine passende Umgebung finden. Bitte wählen Sie eine Umgebung.",
+  "CHOOSE_ENV_PROPOSAL" : "EMiL schlägt für “{{objecttitle}}” folgende Umgebung vor:",
   "CHOOSE_ENV_BTN_PROPOSAL" : "Mit Vorschlag starten",
   "CHOOSE_ENV_SELECT_L" : "Sie möchten “{{objecttitle}}” lieber in einer anderen Umgebung starten?",
   "CHOOSE_ENV_SELECT_PH" : "Wählen oder suchen sie eine Umgebung...",
