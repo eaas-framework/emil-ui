@@ -153,10 +153,12 @@
 					'wizard': {
 						templateUrl: 'partials/wf-b/choose-env.html',
 						controller: function ($scope, $state, objMetadata, objEnvironments, allEnvironments, growl, $translate) {
-							this.noSuggestion = false;
+							var vm = this;
+
+							vm.noSuggestion = false;
 							
 							if (objEnvironments.data.status !== "0" || objEnvironments.data.environments.length === 0) {
-								this.noSuggestion = true;
+								vm.noSuggestion = true;
 							}
 							
 							if (objMetadata.data.status !== "0") {
@@ -164,18 +166,17 @@
 								return;
 							}
 							
-							this.objecttitle = objMetadata.data.title;
+							vm.objecttitle = objMetadata.data.title;
 							
-							if(this.noSuggestion)
-							{
-								if(allEnvironments.data.status === "0")
-									this.environments = allEnvironments.data.environments;
-								else 
+							if(vm.noSuggestion) {
+								if(allEnvironments.data.status === "0") {
+									vm.environments = allEnvironments.data.environments;
+								} else {
 									$state.go('error', {errorMsg: {title: "Environments Error " + objEnvironments.data.status, message: objEnvironments.data.message}});
-									
+								}									
+							} else {
+								vm.environments = objEnvironments.data.environments;
 							}
-							else
-								this.environments = objEnvironments.data.environments;
 						},
 						controllerAs: "chooseEnvCtrl"
 					},
