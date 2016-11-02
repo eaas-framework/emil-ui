@@ -5,6 +5,7 @@
   "CHOOSE_ENV_SELECT_L" : "Start “{{objecttitle}}” in a different environment?",
   "CHOOSE_ENV_SELECT_PH" : "Select an environment",
   "CHOOSE_ENV_SELECT_BTN" : "launch with selected environment",
+  "CHOOSE_ENV_NO_KEYBOARD_LAYOUT_WARNING" : "Please choose your desired keyboard.",
 
   "OVERVIEW_L" : "Objects",
   "OVERVIEW_SEARCH" : "Search...",
@@ -23,6 +24,16 @@
   "BASE_MENU_HELP_EMIL" : "Help/EMIL",
   "BASE_MENU_HELP_OBJ" : "Help/Object",
   "BASE_MENU_FEEDB" : "Feedback/Support",
+  "BASE_MENU_SET_KEYBOARD_LAYOUT": "Change Keyboard layout",
+
+  "SET_KEYBOARD_DLG_TITLE" : "Choose keyboard layout",
+  "SET_KEYBOARD_DLG_CHOOSE_LANG" : "Choose language",
+  "SET_KEYBOARD_DLG_CHOOSE_LANG_PH" : "Select a language...",
+  "SET_KEYBOARD_DLG_CHOOSE_LAYOUT" : "Choose keyboard layout",
+  "SET_KEYBOARD_DLG_CHOOSE_LAYOUT_PH" : "Select a keyboard layout...",
+  "SET_KEYBOARD_DLG_SAVE" : "Save",
+  "SET_KEYBOARD_DLG_SAVE_CANCEL" : "Cancel",
+  "SET_KEYBOARD_DLG_SAVE_SUCCESS": "Choosen keyboard was saved on this computer",
 
   "CHANGEM_TITLE" : "Change media",
   "CHANGEM_OK" : "OK",

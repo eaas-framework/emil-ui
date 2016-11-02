@@ -5,6 +5,7 @@
   "CHOOSE_ENV_SELECT_L" : "Sie möchten “{{objecttitle}}” lieber in einer anderen Umgebung starten?",
   "CHOOSE_ENV_SELECT_PH" : "Wählen oder suchen sie eine Umgebung...",
   "CHOOSE_ENV_SELECT_BTN" : "mit Auswahl starten",
+  "CHOOSE_ENV_NO_KEYBOARD_LAYOUT_WARNING" : "Bitte wählen sie ihre bevorzugte Tastatur aus",
 
   "OVERVIEW_L" : "Objekte",
   "OVERVIEW_SEARCH" : "Eintippen zum Suchen...",
@@ -23,6 +24,16 @@
   "BASE_MENU_HELP_EMIL" : "Hilfe/EMIL",
   "BASE_MENU_HELP_OBJ" : "Hilfe/Objekt",
   "BASE_MENU_FEEDB" : "Feedback/Support",
+  "BASE_MENU_SET_KEYBOARD_LAYOUT" : "Tastaturlayout ändern",
+
+  "SET_KEYBOARD_DLG_TITLE" : "Tastaturlayout ändern",
+  "SET_KEYBOARD_DLG_CHOOSE_LANG" : "Sprache auswählen",
+  "SET_KEYBOARD_DLG_CHOOSE_LANG_PH" : "Wählen oder suchen sie eine Sprache...",
+  "SET_KEYBOARD_DLG_CHOOSE_LAYOUT" : "Tastaturlayout wählen",
+  "SET_KEYBOARD_DLG_CHOOSE_LAYOUT_PH" : "Wählen oder suchen sie ein Tastaturlayout...",
+  "SET_KEYBOARD_DLG_SAVE" : "Speichern",
+  "SET_KEYBOARD_DLG_SAVE_CANCEL" : "Abbrechen",
+  "SET_KEYBOARD_DLG_SAVE_SUCCESS": "Gewählte Tastatur wurde auf diesem Rechner gespeichert",
 
   "CHANGEM_TITLE" : "Medienwechsel",
   "CHANGEM_OK" : "Medium wechseln",
