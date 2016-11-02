@@ -1,0 +1,35 @@
+<div class="modal-header">
+	<h3 class="modal-title">{{'SET_KEYBOARD_DLG_TITLE' | translate}}</h3>
+</div>
+
+<div class="modal-body">
+	<form>
+		<p>{{'SET_KEYBOARD_DLG_CHOOSE_LANG' | translate}}</p>
+		<div style="max-width: 375px;">
+			<ui-select ng-model="setKeyboardLayoutDialogCtrl.chosen_language" theme="bootstrap" title="{{'SET_KEYBOARD_DLG_CHOOSE_LANG_PH' | translate}}" required>
+				<ui-select-match placeholder="{{'SET_KEYBOARD_DLG_CHOOSE_LANG_PH' | translate}}">{{$select.selected.description}}</ui-select-match>
+				<ui-select-choices repeat="lang in setKeyboardLayoutDialogCtrl.kbLayouts.languages | filter: $select.search">
+					<span ng-bind-html="lang.description | highlight: $select.search"></span>
+				</ui-select-choices>
+			</ui-select>
+		</div>
+
+		<br>
+
+		<p>{{'SET_KEYBOARD_DLG_CHOOSE_LAYOUT' | translate}}</p>
+		<div style="max-width: 375px;">
+			<ui-select ng-model="setKeyboardLayoutDialogCtrl.chosen_layout" theme="bootstrap" title="{{'SET_KEYBOARD_DLG_CHOOSE_LAYOUT_PH' | translate}}" required>
+				<ui-select-match placeholder="{{'SET_KEYBOARD_DLG_CHOOSE_LAYOUT_PH' | translate}}">{{$select.selected.description}}</ui-select-match>
+				<ui-select-choices repeat="layout in setKeyboardLayoutDialogCtrl.kbLayouts.layouts | filter: $select.search">
+					<b><span ng-bind-html="layout.description | highlight: $select.search"></span></b> <br>
+					<span ng-bind-html="layout.vendor | highlight: $select.search"></span>
+				</ui-select-choices>
+			</ui-select>
+		</div>
+	</form>
+</div>
+
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="setKeyboardLayoutDialogCtrl.saveKeyboardLayout()">{{'SET_KEYBOARD_DLG_SAVE' | translate}}</button>
+	<button class="btn btn-default" type="button" ng-click="$close()">{{'SET_KEYBOARD_DLG_SAVE_CANCEL' | translate}}</button>
+</div>

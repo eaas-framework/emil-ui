@@ -10,15 +10,15 @@
 	var getEmilEnvironmentUrl = "getEmilEnvironment?envId={0}";
 	var getAllEnvsUrl = "getAllEnvironments";
 	var metadataUrl = "getObjectMetadata?objectId={0}";
-	var startEnvWithDigitalObjectUrl = "startEnvWithDigitalObject?objectId={0}&envId={1}";
+	var startEnvWithDigitalObjectUrl = "startEnvWithDigitalObject?objectId={0}&envId={1}&language={2}&layout={3}";
 	var stopUrl = "stop?sessionId={0}";
 	var screenshotUrl = "screenshot?sessionId={0}";
 	var mediaCollectionURL = "getCollectionList?objectId={0}";
 	var changeMediaURL = "changeMedia?sessionId={0}&objectId={1}&driveId={2}&label={3}";
 	var getObjectListURL = "getObjectList";
 	
-	angular.module('emilUI', ['angular-loading-bar', 'ngSanitize', 'ngAnimate', 'ui.router', 'ui.bootstrap', 'ui.select', 'angular-growl', 'dibari.angular-ellipsis', 'ui.bootstrap.contextMenu', 
-				   'pascalprecht.translate', 'smart-table', 'angular-page-visibility'])
+	angular.module('emilUI', ['angular-loading-bar', 'ngSanitize', 'ngAnimate', 'ngCookies', 'ui.router', 'ui.bootstrap', 'ui.select', 'angular-growl', 
+				   'dibari.angular-ellipsis', 'ui.bootstrap.contextMenu', 'pascalprecht.translate', 'smart-table', 'angular-page-visibility'])
 
 	.config(function($stateProvider, $urlRouterProvider, growlProvider, $httpProvider, $translateProvider) {
 		/*
@@ -122,9 +122,12 @@
 					},
 					allEnvironments: function($stateParams, $http, localConfig) {
 						return $http.get(localConfig.data.eaasBackendURL + getAllEnvsUrl);
+					},
+					kbLayouts: function($http) {
+						return $http.get("kbLayouts.json");
 					}
 				},
-				controller: function($uibModal, objMetadata) {
+				controller: function($scope, $uibModal, $cookies, $translate, objMetadata, kbLayouts, growl) {
 					function showHelpDialog(helpText) {
 						$uibModal.open({
 							animation: true,
@@ -135,15 +138,51 @@
 							controllerAs: "helpDialogCtrl"
 						});
 					}
+
+					var vm = this;
 					
-					this.open = function() {
+					vm.open = function() {
 						showHelpDialog("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor " +
 									     "invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.");
 					};
 											   
-					this.showObjectHelpDialog = function() {
+					vm.showObjectHelpDialog = function() {
 						showHelpDialog(objMetadata.help);
 					};
+
+					vm.showSetKeyboardLayoutDialog = function() {
+						$uibModal.open({
+							animation: true,
+							templateUrl: 'partials/wf-b/set-keyboard-layout-dialog.html',
+							controller: function($scope) {
+								this.kbLayouts = kbLayouts.data;
+
+								var kbLayoutPrefs = $cookies.getObject('kbLayoutPrefs');
+
+								if (kbLayoutPrefs) {
+									this.chosen_language = kbLayoutPrefs.language;
+									this.chosen_layout = kbLayoutPrefs.layout;
+								}
+
+								this.saveKeyboardLayout = function() {
+									if (!this.chosen_language || !this.chosen_layout) {
+										growl.error($translate.instant('SET_KEYBOARD_DLG_SAVE_ERROR_EMPTY'));
+										return;
+									}
+
+									$cookies.putObject('kbLayoutPrefs', {"language": this.chosen_language, "layout": this.chosen_layout}, {expires: new Date('2100')});
+
+									growl.success($translate.instant('SET_KEYBOARD_DLG_SAVE_SUCCESS'));
+									$scope.$close();
+								};
+							},
+							controllerAs: "setKeyboardLayoutDialogCtrl"
+						});
+					};
+
+					$scope.$on('showSetKeyboardLayoutDialog', function(event, args) {
+						vm.showSetKeyboardLayoutDialog();
+					});
 				},
 				controllerAs: "baseCtrl"
 			})
@@ -152,7 +191,7 @@
 				views: {
 					'wizard': {
 						templateUrl: 'partials/wf-b/choose-env.html',
-						controller: function ($scope, $state, objMetadata, objEnvironments, allEnvironments, growl, $translate) {
+						controller: function ($scope, $state, $cookies, objMetadata, objEnvironments, allEnvironments, growl, $translate) {
 							var vm = this;
 
 							vm.noSuggestion = false;
@@ -177,6 +216,11 @@
 							} else {
 								vm.environments = objEnvironments.data.environments;
 							}
+
+							if (!$cookies.getObject('kbLayoutPrefs')) {
+								growl.warning($translate.instant('CHOOSE_ENV_NO_KEYBOARD_LAYOUT_WARNING'));
+								$scope.$emit('showSetKeyboardLayoutDialog');
+							}
 						},
 						controllerAs: "chooseEnvCtrl"
 					},
@@ -192,8 +236,16 @@
 			.state('wf-b.emulator', {
 				url: "/emulator?envId",
 				resolve: {
-					initData: function($http, $stateParams, localConfig) {
-						return $http.get(localConfig.data.eaasBackendURL + formatStr(startEnvWithDigitalObjectUrl, $stateParams.objectId, $stateParams.envId));
+					initData: function($http, $stateParams, $cookies, localConfig) {
+						var kbLayoutPrefs = $cookies.getObject('kbLayoutPrefs');
+
+						if (kbLayoutPrefs) {
+							return $http.get(localConfig.data.eaasBackendURL + formatStr(startEnvWithDigitalObjectUrl, $stateParams.objectId, $stateParams.envId,
+								     kbLayoutPrefs.language.name, kbLayoutPrefs.layout.name));
+						} else {
+							return $http.get(localConfig.data.eaasBackendURL + formatStr(startEnvWithDigitalObjectUrl, $stateParams.objectId, $stateParams.envId,
+								     'us', 'pc105'));
+						}						
 					},
 					chosenEnv: function($http, $stateParams, localConfig) {
 						return $http.get(localConfig.data.eaasBackendURL + formatStr(getEmilEnvironmentUrl, $stateParams.envId));
