@@ -243,15 +243,11 @@
 				url: "/emulator?envId",
 				resolve: {
 					initData: function($http, $stateParams, $cookies, localConfig) {
-						var kbLayoutPrefs = $cookies.getObject('kbLayoutPrefs');
+						// fallback to defaults when no cookie is found
+						var kbLayoutPrefs = $cookies.getObject('kbLayoutPrefs') || {language: {name: 'us'}, layout: {name: 'pc105'}};
 
-						if (kbLayoutPrefs) {
-							return $http.get(localConfig.data.eaasBackendURL + formatStr(startEnvWithDigitalObjectUrl, $stateParams.objectId, $stateParams.envId,
-								     kbLayoutPrefs.language.name, kbLayoutPrefs.layout.name));
-						} else {
-							return $http.get(localConfig.data.eaasBackendURL + formatStr(startEnvWithDigitalObjectUrl, $stateParams.objectId, $stateParams.envId,
-								     'us', 'pc105'));
-						}						
+						return $http.get(localConfig.data.eaasBackendURL + formatStr(startEnvWithDigitalObjectUrl, $stateParams.objectId, $stateParams.envId,
+							     kbLayoutPrefs.language.name, kbLayoutPrefs.layout.name));
 					},
 					chosenEnv: function($http, $stateParams, localConfig) {
 						return $http.get(localConfig.data.eaasBackendURL + formatStr(getEmilEnvironmentUrl, $stateParams.envId));
