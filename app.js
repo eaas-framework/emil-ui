@@ -20,6 +20,29 @@
 	angular.module('emilUI', ['angular-loading-bar', 'ngSanitize', 'ngAnimate', 'ngCookies', 'ui.router', 'ui.bootstrap', 'ui.select', 'angular-growl', 
 				   'dibari.angular-ellipsis', 'ui.bootstrap.contextMenu', 'pascalprecht.translate', 'smart-table', 'angular-page-visibility'])
 
+	.controller('setKeyboardLayoutDialogController', function($scope, $cookies, $translate, kbLayouts, growl) {
+		this.kbLayouts = kbLayouts.data;
+
+		var kbLayoutPrefs = $cookies.getObject('kbLayoutPrefs');
+
+		if (kbLayoutPrefs) {
+			this.chosen_language = kbLayoutPrefs.language;
+			this.chosen_layout = kbLayoutPrefs.layout;
+		}
+
+		this.saveKeyboardLayout = function() {
+			if (!this.chosen_language || !this.chosen_layout) {
+				growl.error($translate.instant('SET_KEYBOARD_DLG_SAVE_ERROR_EMPTY'));
+				return;
+			}
+
+			$cookies.putObject('kbLayoutPrefs', {"language": this.chosen_language, "layout": this.chosen_layout}, {expires: new Date('2100')});
+
+			growl.success($translate.instant('SET_KEYBOARD_DLG_SAVE_SUCCESS'));
+			$scope.$close();
+		};
+	})
+
 	.config(function($stateProvider, $urlRouterProvider, growlProvider, $httpProvider, $translateProvider) {
 		/*
 		 * Internationalization 
@@ -127,7 +150,7 @@
 						return $http.get("kbLayouts.json");
 					}
 				},
-				controller: function($scope, $uibModal, $cookies, $translate, objMetadata, kbLayouts, growl) {
+				controller: function($scope, $uibModal, objMetadata, kbLayouts) {
 					function showHelpDialog(helpText) {
 						$uibModal.open({
 							animation: true,
@@ -154,29 +177,12 @@
 						$uibModal.open({
 							animation: true,
 							templateUrl: 'partials/wf-b/set-keyboard-layout-dialog.html',
-							controller: function($scope) {
-								this.kbLayouts = kbLayouts.data;
-
-								var kbLayoutPrefs = $cookies.getObject('kbLayoutPrefs');
-
-								if (kbLayoutPrefs) {
-									this.chosen_language = kbLayoutPrefs.language;
-									this.chosen_layout = kbLayoutPrefs.layout;
+							resolve: {
+								kbLayouts: function() {
+									return kbLayouts; // refers to outer kbLayouts variable
 								}
-
-								this.saveKeyboardLayout = function() {
-									if (!this.chosen_language || !this.chosen_layout) {
-										growl.error($translate.instant('SET_KEYBOARD_DLG_SAVE_ERROR_EMPTY'));
-										return;
-									}
-
-									$cookies.putObject('kbLayoutPrefs', {"language": this.chosen_language, "layout": this.chosen_layout}, {expires: new Date('2100')});
-
-									growl.success($translate.instant('SET_KEYBOARD_DLG_SAVE_SUCCESS'));
-									$scope.$close();
-								};
 							},
-							controllerAs: "setKeyboardLayoutDialogCtrl"
+							controller: "setKeyboardLayoutDialogController as setKeyboardLayoutDialogCtrl"
 						});
 					};
 
