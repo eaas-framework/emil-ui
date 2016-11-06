@@ -27,6 +27,7 @@
   "BASE_MENU_SET_KEYBOARD_LAYOUT" : "Tastaturlayout ändern",
 
   "SET_KEYBOARD_DLG_TITLE" : "Tastaturlayout ändern",
+  "SET_KEYBOARD_DLG_HELP" : "Um die Tasten Ihres Computers auf die richten Tasten des Emulators zu legen, wählen Sie bitte Ihre lokale Spracheinstellung und ihr Tastaturmodell. Wenn Sie bzgl. Ihres Tastaturmodells unsicher sind wählen Sie pc-105 (eine standard Windows tastatur).",
   "SET_KEYBOARD_DLG_CHOOSE_LANG" : "Sprache auswählen",
   "SET_KEYBOARD_DLG_CHOOSE_LANG_PH" : "Wählen oder suchen sie eine Sprache...",
   "SET_KEYBOARD_DLG_CHOOSE_LAYOUT" : "Tastaturlayout wählen",

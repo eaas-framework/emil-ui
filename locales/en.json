@@ -27,6 +27,7 @@
   "BASE_MENU_SET_KEYBOARD_LAYOUT": "Change Keyboard layout",
 
   "SET_KEYBOARD_DLG_TITLE" : "Choose keyboard layout",
+  "SET_KEYBOARD_DLG_HELP" : "In order to map between user and emulator keys, we need to know the local keyboard model and language settings. Please select the language of your keyboard input and the keyboard model. If unsure select pc-105 (a standard windows keyboard).",
   "SET_KEYBOARD_DLG_CHOOSE_LANG" : "Choose language",
   "SET_KEYBOARD_DLG_CHOOSE_LANG_PH" : "Select a language...",
   "SET_KEYBOARD_DLG_CHOOSE_LAYOUT" : "Choose keyboard layout",
