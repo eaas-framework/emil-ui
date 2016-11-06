@@ -301,28 +301,28 @@
 							
 							vm.sessionId = initData.data.id;
 							
-							var closeEmulatorOnTabLeaveTimer = null;
-							var leaveWarningShownBefore = false;
+						//	var closeEmulatorOnTabLeaveTimer = null;
+						//	var leaveWarningShownBefore = false;
 							
-							var deregisterOnPageFocused = $pageVisibility.$on('pageFocused', function() {								
-								$timeout.cancel(closeEmulatorOnTabLeaveTimer);
-							});
+						//	var deregisterOnPageFocused = $pageVisibility.$on('pageFocused', function() {								
+						//		$timeout.cancel(closeEmulatorOnTabLeaveTimer);
+						//	});
 
-							var deregisterOnPageBlurred = $pageVisibility.$on('pageBlurred', function() {
-								if (!leaveWarningShownBefore) {
-									$window.alert($translate.instant('JS_EMU_LEAVE_PAGE'));
-									leaveWarningShownBefore = true;
-								}
+						//	var deregisterOnPageBlurred = $pageVisibility.$on('pageBlurred', function() {
+						//		if (!leaveWarningShownBefore) {
+						//			$window.alert($translate.instant('JS_EMU_LEAVE_PAGE'));
+						//			leaveWarningShownBefore = true;
+						//		}
 								
-								closeEmulatorOnTabLeaveTimer = $timeout(function() {
-									vm.stopEmulator();
-								}, 3 * 60 * 1000);
-							});
+						//		closeEmulatorOnTabLeaveTimer = $timeout(function() {
+						//			vm.stopEmulator();
+						//		}, 3 * 60 * 1000);
+						//	});
 							
-							$scope.$on("$destroy", function() {
-								deregisterOnPageFocused();
-								deregisterOnPageBlurred();
-							});
+						//	$scope.$on("$destroy", function() {
+						//		deregisterOnPageFocused();
+						//		deregisterOnPageBlurred();
+						//	});
 						},
 						controllerAs: "actionsCtrl"
 					},
