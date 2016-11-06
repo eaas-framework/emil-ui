@@ -1,0 +1,1305 @@
+{
+  "languages": [
+    {
+      "name": "us",
+      "description": "English (US)"
+    },
+    {
+      "name": "af",
+      "description": "Afghani"
+    },
+    {
+      "name": "ara",
+      "description": "Arabic"
+    },
+    {
+      "name": "al",
+      "description": "Albanian"
+    },
+    {
+      "name": "am",
+      "description": "Armenian"
+    },
+    {
+      "name": "at",
+      "description": "German (Austria)"
+    },
+    {
+      "name": "az",
+      "description": "Azerbaijani"
+    },
+    {
+      "name": "by",
+      "description": "Belarusian"
+    },
+    {
+      "name": "be",
+      "description": "Belgian"
+    },
+    {
+      "name": "bd",
+      "description": "Bangla"
+    },
+    {
+      "name": "in",
+      "description": "Indian"
+    },
+    {
+      "name": "ba",
+      "description": "Bosnian"
+    },
+    {
+      "name": "br",
+      "description": "Portuguese (Brazil)"
+    },
+    {
+      "name": "bg",
+      "description": "Bulgarian"
+    },
+    {
+      "name": "ma",
+      "description": "Arabic (Morocco)"
+    },
+    {
+      "name": "cm",
+      "description": "English (Cameroon)"
+    },
+    {
+      "name": "mm",
+      "description": "Burmese"
+    },
+    {
+      "name": "ca",
+      "description": "French (Canada)"
+    },
+    {
+      "name": "cd",
+      "description": "French (Democratic Republic of the Congo)"
+    },
+    {
+      "name": "cn",
+      "description": "Chinese"
+    },
+    {
+      "name": "hr",
+      "description": "Croatian"
+    },
+    {
+      "name": "cz",
+      "description": "Czech"
+    },
+    {
+      "name": "dk",
+      "description": "Danish"
+    },
+    {
+      "name": "nl",
+      "description": "Dutch"
+    },
+    {
+      "name": "bt",
+      "description": "Dzongkha"
+    },
+    {
+      "name": "ee",
+      "description": "Estonian"
+    },
+    {
+      "name": "ir",
+      "description": "Persian"
+    },
+    {
+      "name": "iq",
+      "description": "Iraqi"
+    },
+    {
+      "name": "fo",
+      "description": "Faroese"
+    },
+    {
+      "name": "fi",
+      "description": "Finnish"
+    },
+    {
+      "name": "fr",
+      "description": "French"
+    },
+    {
+      "name": "gh",
+      "description": "English (Ghana)"
+    },
+    {
+      "name": "gn",
+      "description": "French (Guinea)"
+    },
+    {
+      "name": "ge",
+      "description": "Georgian"
+    },
+    {
+      "name": "de",
+      "description": "German"
+    },
+    {
+      "name": "gr",
+      "description": "Greek"
+    },
+    {
+      "name": "hu",
+      "description": "Hungarian"
+    },
+    {
+      "name": "is",
+      "description": "Icelandic"
+    },
+    {
+      "name": "il",
+      "description": "Hebrew"
+    },
+    {
+      "name": "it",
+      "description": "Italian"
+    },
+    {
+      "name": "jp",
+      "description": "Japanese"
+    },
+    {
+      "name": "kg",
+      "description": "Kyrgyz"
+    },
+    {
+      "name": "kh",
+      "description": "Khmer (Cambodia)"
+    },
+    {
+      "name": "kz",
+      "description": "Kazakh"
+    },
+    {
+      "name": "la",
+      "description": "Lao"
+    },
+    {
+      "name": "latam",
+      "description": "Spanish (Latin American)"
+    },
+    {
+      "name": "lt",
+      "description": "Lithuanian"
+    },
+    {
+      "name": "lv",
+      "description": "Latvian"
+    },
+    {
+      "name": "mao",
+      "description": "Maori"
+    },
+    {
+      "name": "me",
+      "description": "Montenegrin"
+    },
+    {
+      "name": "mk",
+      "description": "Macedonian"
+    },
+    {
+      "name": "mt",
+      "description": "Maltese"
+    },
+    {
+      "name": "mn",
+      "description": "Mongolian"
+    },
+    {
+      "name": "no",
+      "description": "Norwegian"
+    },
+    {
+      "name": "pl",
+      "description": "Polish"
+    },
+    {
+      "name": "pt",
+      "description": "Portuguese"
+    },
+    {
+      "name": "ro",
+      "description": "Romanian"
+    },
+    {
+      "name": "ru",
+      "description": "Russian"
+    },
+    {
+      "name": "rs",
+      "description": "Serbian"
+    },
+    {
+      "name": "si",
+      "description": "Slovenian"
+    },
+    {
+      "name": "sk",
+      "description": "Slovak"
+    },
+    {
+      "name": "es",
+      "description": "Spanish"
+    },
+    {
+      "name": "se",
+      "description": "Swedish"
+    },
+    {
+      "name": "ch",
+      "description": "German (Switzerland)"
+    },
+    {
+      "name": "sy",
+      "description": "Arabic (Syria)"
+    },
+    {
+      "name": "tj",
+      "description": "Tajik"
+    },
+    {
+      "name": "lk",
+      "description": "Sinhala (phonetic)"
+    },
+    {
+      "name": "th",
+      "description": "Thai"
+    },
+    {
+      "name": "tr",
+      "description": "Turkish"
+    },
+    {
+      "name": "tw",
+      "description": "Taiwanese"
+    },
+    {
+      "name": "ua",
+      "description": "Ukrainian"
+    },
+    {
+      "name": "gb",
+      "description": "English (UK)"
+    },
+    {
+      "name": "uz",
+      "description": "Uzbek"
+    },
+    {
+      "name": "vn",
+      "description": "Vietnamese"
+    },
+    {
+      "name": "kr",
+      "description": "Korean"
+    },
+    {
+      "name": "nec_vndr/jp",
+      "description": "Japanese (PC-98xx Series)"
+    },
+    {
+      "name": "ie",
+      "description": "Irish"
+    },
+    {
+      "name": "pk",
+      "description": "Urdu (Pakistan)"
+    },
+    {
+      "name": "mv",
+      "description": "Dhivehi"
+    },
+    {
+      "name": "za",
+      "description": "English (South Africa)"
+    },
+    {
+      "name": "epo",
+      "description": "Esperanto"
+    },
+    {
+      "name": "np",
+      "description": "Nepali"
+    },
+    {
+      "name": "ng",
+      "description": "English (Nigeria)"
+    },
+    {
+      "name": "et",
+      "description": "Amharic"
+    },
+    {
+      "name": "sn",
+      "description": "Wolof"
+    },
+    {
+      "name": "brai",
+      "description": "Braille"
+    },
+    {
+      "name": "tm",
+      "description": "Turkmen"
+    },
+    {
+      "name": "ml",
+      "description": "Bambara"
+    },
+    {
+      "name": "tz",
+      "description": "Swahili (Tanzania)"
+    },
+    {
+      "name": "ke",
+      "description": "Swahili (Kenya)"
+    },
+    {
+      "name": "bw",
+      "description": "Tswana"
+    },
+    {
+      "name": "ph",
+      "description": "Filipino"
+    },
+    {
+      "name": "md",
+      "description": "Moldavian"
+    }
+  ],
+  "layouts": [
+    {
+      "name": "pc101",
+      "description": "Generic 101-key PC",
+      "vendor": "Generic"
+    },
+    {
+      "name": "pc102",
+      "description": "Generic 102-key (Intl) PC",
+      "vendor": "Generic"
+    },
+    {
+      "name": "pc104",
+      "description": "Generic 104-key PC",
+      "vendor": "Generic"
+    },
+    {
+      "name": "pc105",
+      "description": "Generic 105-key (Intl) PC",
+      "vendor": "Generic"
+    },
+    {
+      "name": "dell101",
+      "description": "Dell 101-key PC",
+      "vendor": "Dell"
+    },
+    {
+      "name": "latitude",
+      "description": "Dell Latitude series laptop",
+      "vendor": "Dell"
+    },
+    {
+      "name": "dellm65",
+      "description": "Dell Precision M65",
+      "vendor": "Dell"
+    },
+    {
+      "name": "everex",
+      "description": "Everex STEPnote",
+      "vendor": "Everex"
+    },
+    {
+      "name": "flexpro",
+      "description": "Keytronic FlexPro",
+      "vendor": "Keytronic"
+    },
+    {
+      "name": "microsoft",
+      "description": "Microsoft Natural",
+      "vendor": "Microsoft Inc."
+    },
+    {
+      "name": "omnikey101",
+      "description": "Northgate OmniKey 101",
+      "vendor": "Northgate"
+    },
+    {
+      "name": "winbook",
+      "description": "Winbook Model XP5",
+      "vendor": "Generic"
+    },
+    {
+      "name": "pc98",
+      "description": "PC-98xx Series",
+      "vendor": "Generic"
+    },
+    {
+      "name": "a4techKB21",
+      "description": "A4Tech KB-21",
+      "vendor": "A4Tech"
+    },
+    {
+      "name": "a4techKBS8",
+      "description": "A4Tech KBS-8",
+      "vendor": "A4Tech"
+    },
+    {
+      "name": "a4_rfkb23",
+      "description": "A4Tech Wireless Desktop RFKB-23",
+      "vendor": "A4Tech"
+    },
+    {
+      "name": "airkey",
+      "description": "Acer AirKey V",
+      "vendor": "Acer"
+    },
+    {
+      "name": "azonaRF2300",
+      "description": "Azona RF2300 wireless Internet Keyboard",
+      "vendor": "Azona"
+    },
+    {
+      "name": "scorpius",
+      "description": "Advance Scorpius KI",
+      "vendor": "Scorpius"
+    },
+    {
+      "name": "brother",
+      "description": "Brother Internet Keyboard",
+      "vendor": "Brother"
+    },
+    {
+      "name": "btc5113rf",
+      "description": "BTC 5113RF Multimedia",
+      "vendor": "BTC"
+    },
+    {
+      "name": "btc5126t",
+      "description": "BTC 5126T",
+      "vendor": "BTC"
+    },
+    {
+      "name": "btc6301urf",
+      "description": "BTC 6301URF",
+      "vendor": "BTC"
+    },
+    {
+      "name": "btc9000",
+      "description": "BTC 9000",
+      "vendor": "BTC"
+    },
+    {
+      "name": "btc9000a",
+      "description": "BTC 9000A",
+      "vendor": "BTC"
+    },
+    {
+      "name": "btc9001ah",
+      "description": "BTC 9001AH",
+      "vendor": "BTC"
+    },
+    {
+      "name": "btc5090",
+      "description": "BTC 5090",
+      "vendor": "BTC"
+    },
+    {
+      "name": "btc9019u",
+      "description": "BTC 9019U",
+      "vendor": "BTC"
+    },
+    {
+      "name": "btc9116u",
+      "description": "BTC 9116U Mini Wireless Internet and Gaming"
+    },
+    {
+      "name": "cherryblue",
+      "description": "Cherry Blue Line CyBo@rd"
+    },
+    {
+      "name": "cherryblueb",
+      "description": "Cherry CyMotion Master XPress",
+      "vendor": "Cherry"
+    },
+    {
+      "name": "cherrybluea",
+      "description": "Cherry Blue Line CyBo@rd (alternate option)",
+      "vendor": "Cherry"
+    },
+    {
+      "name": "cherrycyboard",
+      "description": "Cherry CyBo@rd USB-Hub",
+      "vendor": "Cherry"
+    },
+    {
+      "name": "cherrycmexpert",
+      "description": "Cherry CyMotion Expert",
+      "vendor": "Cherry"
+    },
+    {
+      "name": "cherrybunlim",
+      "description": "Cherry B.UNLIMITED",
+      "vendor": "Cherry"
+    },
+    {
+      "name": "chicony",
+      "description": "Chicony Internet Keyboard",
+      "vendor": "Chicony"
+    },
+    {
+      "name": "chicony0108",
+      "description": "Chicony KU-0108",
+      "vendor": "Chicony"
+    },
+    {
+      "name": "chicony0420",
+      "description": "Chicony KU-0420",
+      "vendor": "Chicony"
+    },
+    {
+      "name": "chicony9885",
+      "description": "Chicony KB-9885",
+      "vendor": "Chicony"
+    },
+    {
+      "name": "compaqeak8",
+      "description": "Compaq Easy Access Keyboard",
+      "vendor": "Compaq"
+    },
+    {
+      "name": "compaqik7",
+      "description": "Compaq Internet Keyboard (7 keys)",
+      "vendor": "Compaq"
+    },
+    {
+      "name": "compaqik13",
+      "description": "Compaq Internet Keyboard (13 keys)",
+      "vendor": "Compaq"
+    },
+    {
+      "name": "compaqik18",
+      "description": "Compaq Internet Keyboard (18 keys)",
+      "vendor": "Compaq"
+    },
+    {
+      "name": "cymotionlinux",
+      "description": "Cherry CyMotion Master Linux",
+      "vendor": "Cherry"
+    },
+    {
+      "name": "armada",
+      "description": "Laptop/notebook Compaq (eg. Armada) Laptop Keyboard",
+      "vendor": "Compaq"
+    },
+    {
+      "name": "presario",
+      "description": "Laptop/notebook Compaq (eg. Presario) Internet Keyboard",
+      "vendor": "Compaq"
+    },
+    {
+      "name": "ipaq",
+      "description": "Compaq iPaq Keyboard",
+      "vendor": "Compaq"
+    },
+    {
+      "name": "dell",
+      "description": "Dell",
+      "vendor": "Dell"
+    },
+    {
+      "name": "dellsk8125",
+      "description": "Dell SK-8125",
+      "vendor": "Dell"
+    },
+    {
+      "name": "dellsk8135",
+      "description": "Dell SK-8135",
+      "vendor": "Dell"
+    },
+    {
+      "name": "dellusbmm",
+      "description": "Dell USB Multimedia Keyboard",
+      "vendor": "Dell"
+    },
+    {
+      "name": "inspiron",
+      "description": "Dell Laptop/notebook Inspiron 6xxx/8xxx",
+      "vendor": "Dell"
+    },
+    {
+      "name": "precision_m",
+      "description": "Dell Laptop/notebook Precision M series",
+      "vendor": "Dell"
+    },
+    {
+      "name": "dexxa",
+      "description": "Dexxa Wireless Desktop Keyboard",
+      "vendor": "Dexxa"
+    },
+    {
+      "name": "diamond",
+      "description": "Diamond 9801 / 9802 series",
+      "vendor": "Diamond"
+    },
+    {
+      "name": "dtk2000",
+      "description": "DTK2000"
+    },
+    {
+      "name": "ennyah_dkb1008",
+      "description": "Ennyah DKB-1008",
+      "vendor": "Ennyah"
+    },
+    {
+      "name": "fscaa1667g",
+      "description": "Fujitsu-Siemens Computers AMILO laptop",
+      "vendor": "Fujitsu-Siemens"
+    },
+    {
+      "name": "genius",
+      "description": "Genius Comfy KB-16M / Genius MM Keyboard KWD-910",
+      "vendor": "Genius"
+    },
+    {
+      "name": "geniuscomfy",
+      "description": "Genius Comfy KB-12e",
+      "vendor": "Genius"
+    },
+    {
+      "name": "geniuscomfy2",
+      "description": "Genius Comfy KB-21e-Scroll",
+      "vendor": "Genius"
+    },
+    {
+      "name": "geniuskb19e",
+      "description": "Genius KB-19e NB",
+      "vendor": "Genius"
+    },
+    {
+      "name": "geniuskkb2050hs",
+      "description": "Genius KKB-2050HS",
+      "vendor": "Genius"
+    },
+    {
+      "name": "gyration",
+      "description": "Gyration",
+      "vendor": "Gyration"
+    },
+    {
+      "name": "htcdream",
+      "description": "HTC Dream",
+      "vendor": "HTC"
+    },
+    {
+      "name": "kinesis",
+      "description": "Kinesis",
+      "vendor": "Kinesis"
+    },
+    {
+      "name": "logitech_base",
+      "description": "Logitech Generic Keyboard",
+      "vendor": "Logitech"
+    },
+    {
+      "name": "logitech_g15",
+      "description": "Logitech G15 extra keys via G15daemon",
+      "vendor": "Logitech"
+    },
+    {
+      "name": "hpi6",
+      "description": "Hewlett-Packard Internet Keyboard",
+      "vendor": "Hewlett-Packard"
+    },
+    {
+      "name": "hp250x",
+      "description": "Hewlett-Packard SK-250x Multimedia Keyboard",
+      "vendor": "Hewlett-Packard"
+    },
+    {
+      "name": "hpxe3gc",
+      "description": "Hewlett-Packard Omnibook XE3 GC",
+      "vendor": "Hewlett-Packard"
+    },
+    {
+      "name": "hpxe3gf",
+      "description": "Hewlett-Packard Omnibook XE3 GF",
+      "vendor": "Hewlett-Packard"
+    },
+    {
+      "name": "hpxt1000",
+      "description": "Hewlett-Packard Omnibook XT1000",
+      "vendor": "Hewlett-Packard"
+    },
+    {
+      "name": "hpdv5",
+      "description": "Hewlett-Packard Pavilion dv5",
+      "vendor": "Hewlett-Packard"
+    },
+    {
+      "name": "hpzt11xx",
+      "description": "Hewlett-Packard Pavilion ZT11xx",
+      "vendor": "Hewlett-Packard"
+    },
+    {
+      "name": "hp500fa",
+      "description": "Hewlett-Packard Omnibook 500 FA",
+      "vendor": "Hewlett-Packard"
+    },
+    {
+      "name": "hp5xx",
+      "description": "Hewlett-Packard Omnibook 5xx",
+      "vendor": "Hewlett-Packard"
+    },
+    {
+      "name": "hpnx9020",
+      "description": "Hewlett-Packard nx9020",
+      "vendor": "Hewlett-Packard"
+    },
+    {
+      "name": "hp6000",
+      "description": "Hewlett-Packard Omnibook 6000/6100",
+      "vendor": "Hewlett-Packard"
+    },
+    {
+      "name": "honeywell_euroboard",
+      "description": "Honeywell Euroboard",
+      "vendor": "Hewlett-Packard"
+    },
+    {
+      "name": "hpmini110",
+      "description": "Hewlett-Packard Mini 110 Notebook",
+      "vendor": "Hewlett-Packard"
+    },
+    {
+      "name": "rapidaccess",
+      "description": "IBM Rapid Access",
+      "vendor": "Lenovo (previously IBM)"
+    },
+    {
+      "name": "rapidaccess2",
+      "description": "IBM Rapid Access II",
+      "vendor": "Lenovo (previously IBM)"
+    },
+    {
+      "name": "thinkpad",
+      "description": "IBM ThinkPad 560Z/600/600E/A22E",
+      "vendor": "Lenovo (previously IBM)"
+    },
+    {
+      "name": "thinkpad60",
+      "description": "IBM ThinkPad R60/T60/R61/T61",
+      "vendor": "Lenovo (previously IBM)"
+    },
+    {
+      "name": "thinkpadz60",
+      "description": "IBM ThinkPad Z60m/Z60t/Z61m/Z61t",
+      "vendor": "Lenovo (previously IBM)"
+    },
+    {
+      "name": "ibm_spacesaver",
+      "description": "IBM Space Saver",
+      "vendor": "Lenovo (previously IBM)"
+    },
+    {
+      "name": "logiaccess",
+      "description": "Logitech Access Keyboard",
+      "vendor": "Logitech"
+    },
+    {
+      "name": "logiclx300",
+      "description": "Logitech Cordless Desktop LX-300",
+      "vendor": "Logitech"
+    },
+    {
+      "name": "logii350",
+      "description": "Logitech Internet 350 Keyboard",
+      "vendor": "Logitech"
+    },
+    {
+      "name": "logimel",
+      "description": "Logitech Media Elite Keyboard",
+      "vendor": "Logitech"
+    },
+    {
+      "name": "logicd",
+      "description": "Logitech Cordless Desktop",
+      "vendor": "Logitech"
+    },
+    {
+      "name": "logicd_it",
+      "description": "Logitech Cordless Desktop iTouch",
+      "vendor": "Logitech"
+    },
+    {
+      "name": "logicd_nav",
+      "description": "Logitech Cordless Desktop Navigator",
+      "vendor": "Logitech"
+    },
+    {
+      "name": "logicd_opt",
+      "description": "Logitech Cordless Desktop Optical",
+      "vendor": "Logitech"
+    },
+    {
+      "name": "logicda",
+      "description": "Logitech Cordless Desktop (alternate option)",
+      "vendor": "Logitech"
+    },
+    {
+      "name": "logicdpa2",
+      "description": "Logitech Cordless Desktop Pro (alternate option 2)",
+      "vendor": "Logitech"
+    },
+    {
+      "name": "logicfn",
+      "description": "Logitech Cordless Freedom/Desktop Navigator",
+      "vendor": "Logitech"
+    },
+    {
+      "name": "logicdn",
+      "description": "Logitech Cordless Desktop Navigator",
+      "vendor": "Logitech"
+    },
+    {
+      "name": "logiitc",
+      "description": "Logitech iTouch Cordless Keyboard (model Y-RB6)",
+      "vendor": "Logitech"
+    },
+    {
+      "name": "logiik",
+      "description": "Logitech Internet Keyboard",
+      "vendor": "Logitech"
+    },
+    {
+      "name": "itouch",
+      "description": "Logitech iTouch",
+      "vendor": "Logitech"
+    },
+    {
+      "name": "logicink",
+      "description": "Logitech Internet Navigator Keyboard",
+      "vendor": "Logitech"
+    },
+    {
+      "name": "logiex110",
+      "description": "Logitech Cordless Desktop EX110",
+      "vendor": "Logitech"
+    },
+    {
+      "name": "logiinkse",
+      "description": "Logitech iTouch Internet Navigator Keyboard SE",
+      "vendor": "Logitech"
+    },
+    {
+      "name": "logiinkseusb",
+      "description": "Logitech iTouch Internet Navigator Keyboard SE (USB)",
+      "vendor": "Logitech"
+    },
+    {
+      "name": "logiultrax",
+      "description": "Logitech Ultra-X Keyboard",
+      "vendor": "Logitech"
+    },
+    {
+      "name": "logiultraxc",
+      "description": "Logitech Ultra-X Cordless Media Desktop Keyboard",
+      "vendor": "Logitech"
+    },
+    {
+      "name": "logidinovo",
+      "description": "Logitech diNovo Keyboard",
+      "vendor": "Logitech"
+    },
+    {
+      "name": "logidinovoedge",
+      "description": "Logitech diNovo Edge Keyboard",
+      "vendor": "Logitech"
+    },
+    {
+      "name": "mx1998",
+      "description": "Memorex MX1998",
+      "vendor": "Memorex"
+    },
+    {
+      "name": "mx2500",
+      "description": "Memorex MX2500 EZ-Access Keyboard",
+      "vendor": "Memorex"
+    },
+    {
+      "name": "mx2750",
+      "description": "Memorex MX2750",
+      "vendor": "Memorex"
+    },
+    {
+      "name": "microsoft4000",
+      "description": "Microsoft Natural Wireless Ergonomic Keyboard 4000",
+      "vendor": "Microsoft Inc."
+    },
+    {
+      "name": "microsoft7000",
+      "description": "Microsoft Natural Wireless Ergonomic Keyboard 7000",
+      "vendor": "Microsoft Inc."
+    },
+    {
+      "name": "microsoftinet",
+      "description": "Microsoft Internet Keyboard",
+      "vendor": "Microsoft Inc."
+    },
+    {
+      "name": "microsoftpro",
+      "description": "Microsoft Natural Keyboard Pro / Microsoft Internet Keyboard Pro",
+      "vendor": "Microsoft Inc."
+    },
+    {
+      "name": "microsoftprousb",
+      "description": "Microsoft Natural Keyboard Pro USB / Microsoft Internet Keyboard Pro",
+      "vendor": "Microsoft Inc."
+    },
+    {
+      "name": "microsoftprooem",
+      "description": "Microsoft Natural Keyboard Pro OEM",
+      "vendor": "Microsoft Inc."
+    },
+    {
+      "name": "vsonku306",
+      "description": "ViewSonic KU-306 Internet Keyboard",
+      "vendor": "ViewSonic"
+    },
+    {
+      "name": "microsoftprose",
+      "description": "Microsoft Internet Keyboard Pro, Swedish",
+      "vendor": "Microsoft Inc."
+    },
+    {
+      "name": "microsoftoffice",
+      "description": "Microsoft Office Keyboard",
+      "vendor": "Microsoft Inc."
+    },
+    {
+      "name": "microsoftmult",
+      "description": "Microsoft Wireless Multimedia Keyboard 1.0A",
+      "vendor": "Microsoft Inc."
+    },
+    {
+      "name": "microsoftelite",
+      "description": "Microsoft Natural Keyboard Elite",
+      "vendor": "Microsoft Inc."
+    },
+    {
+      "name": "microsoftccurve2k",
+      "description": "Microsoft Comfort Curve Keyboard 2000",
+      "vendor": "Microsoft Inc."
+    },
+    {
+      "name": "oretec",
+      "description": "Ortek MCK-800 MM/Internet keyboard",
+      "vendor": "Ortek"
+    },
+    {
+      "name": "propeller",
+      "description": "Propeller Voyager (KTEZ-1000)",
+      "vendor": "KeyTronic"
+    },
+    {
+      "name": "qtronix",
+      "description": "QTronix Scorpius 98N+",
+      "vendor": "QTronix"
+    },
+    {
+      "name": "samsung4500",
+      "description": "Samsung SDM 4500P",
+      "vendor": "Samsung"
+    },
+    {
+      "name": "samsung4510",
+      "description": "Samsung SDM 4510P",
+      "vendor": "Samsung"
+    },
+    {
+      "name": "sanwaskbkg3",
+      "description": "Sanwa Supply SKB-KG3",
+      "vendor": "Sanwa Supply Inc."
+    },
+    {
+      "name": "sk1300",
+      "description": "SK-1300",
+      "vendor": "NEC"
+    },
+    {
+      "name": "sk2500",
+      "description": "SK-2500",
+      "vendor": "NEC"
+    },
+    {
+      "name": "sk6200",
+      "description": "SK-6200",
+      "vendor": "NEC"
+    },
+    {
+      "name": "sk7100",
+      "description": "SK-7100",
+      "vendor": "NEC"
+    },
+    {
+      "name": "sp_inet",
+      "description": "Super Power Multimedia Keyboard",
+      "vendor": "Generic"
+    },
+    {
+      "name": "sven",
+      "description": "SVEN Ergonomic 2500",
+      "vendor": "SVEN"
+    },
+    {
+      "name": "sven303",
+      "description": "SVEN Slim 303",
+      "vendor": "SVEN"
+    },
+    {
+      "name": "symplon",
+      "description": "Symplon PaceBook (tablet PC)",
+      "vendor": "Symplon"
+    },
+    {
+      "name": "toshiba_s3000",
+      "description": "Toshiba Satellite S3000",
+      "vendor": "Toshiba"
+    },
+    {
+      "name": "trust",
+      "description": "Trust Wireless Keyboard Classic",
+      "vendor": "Trust"
+    },
+    {
+      "name": "trustda",
+      "description": "Trust Direct Access Keyboard",
+      "vendor": "Trust"
+    },
+    {
+      "name": "trust_slimline",
+      "description": "Trust Slimline",
+      "vendor": "Trust"
+    },
+    {
+      "name": "tm2020",
+      "description": "TypeMatrix EZ-Reach 2020",
+      "vendor": "TypeMatrix"
+    },
+    {
+      "name": "tm2030PS2",
+      "description": "TypeMatrix EZ-Reach 2030 PS2",
+      "vendor": "TypeMatrix"
+    },
+    {
+      "name": "tm2030USB",
+      "description": "TypeMatrix EZ-Reach 2030 USB",
+      "vendor": "TypeMatrix"
+    },
+    {
+      "name": "tm2030USB-102",
+      "description": "TypeMatrix EZ-Reach 2030 USB (102/105:EU mode)",
+      "vendor": "TypeMatrix"
+    },
+    {
+      "name": "tm2030USB-106",
+      "description": "TypeMatrix EZ-Reach 2030 USB (106:JP mode)",
+      "vendor": "TypeMatrix"
+    },
+    {
+      "name": "yahoo",
+      "description": "Yahoo! Internet Keyboard",
+      "vendor": "Yahoo!"
+    },
+    {
+      "name": "macbook78",
+      "description": "MacBook/MacBook Pro",
+      "vendor": "Apple"
+    },
+    {
+      "name": "macbook79",
+      "description": "MacBook/MacBook Pro (Intl)",
+      "vendor": "Apple"
+    },
+    {
+      "name": "macintosh",
+      "description": "Macintosh",
+      "vendor": "Apple"
+    },
+    {
+      "name": "macintosh_old",
+      "description": "Macintosh Old",
+      "vendor": "Apple"
+    },
+    {
+      "name": "macintosh_hhk",
+      "description": "Happy Hacking Keyboard for Mac",
+      "vendor": "Fujitsu"
+    },
+    {
+      "name": "acer_c300",
+      "description": "Acer C300",
+      "vendor": "Acer"
+    },
+    {
+      "name": "acer_ferrari4k",
+      "description": "Acer Ferrari 4000",
+      "vendor": "Acer"
+    },
+    {
+      "name": "acer_laptop",
+      "description": "Acer Laptop",
+      "vendor": "Acer"
+    },
+    {
+      "name": "asus_laptop",
+      "description": "Asus Laptop",
+      "vendor": "Asus"
+    },
+    {
+      "name": "apple",
+      "description": "Apple",
+      "vendor": "Apple"
+    },
+    {
+      "name": "apple_laptop",
+      "description": "Apple Laptop",
+      "vendor": "Apple"
+    },
+    {
+      "name": "applealu_ansi",
+      "description": "Apple Aluminium Keyboard (ANSI)",
+      "vendor": "Apple"
+    },
+    {
+      "name": "applealu_iso",
+      "description": "Apple Aluminium Keyboard (ISO)",
+      "vendor": "Apple"
+    },
+    {
+      "name": "applealu_jis",
+      "description": "Apple Aluminium Keyboard (JIS)",
+      "vendor": "Apple"
+    },
+    {
+      "name": "silvercrest",
+      "description": "SILVERCREST Multimedia Wireless Keyboard",
+      "vendor": "Silvercrest"
+    },
+    {
+      "name": "emachines",
+      "description": "Laptop/notebook eMachines m68xx",
+      "vendor": "eMachines"
+    },
+    {
+      "name": "benqx",
+      "description": "BenQ X-Touch",
+      "vendor": "BenQ"
+    },
+    {
+      "name": "benqx730",
+      "description": "BenQ X-Touch 730",
+      "vendor": "BenQ"
+    },
+    {
+      "name": "benqx800",
+      "description": "BenQ X-Touch 800",
+      "vendor": "BenQ"
+    },
+    {
+      "name": "hhk",
+      "description": "Happy Hacking Keyboard",
+      "vendor": "Fujitsu"
+    },
+    {
+      "name": "classmate",
+      "description": "Classmate PC",
+      "vendor": "Intel"
+    },
+    {
+      "name": "olpc",
+      "description": "OLPC",
+      "vendor": "OLPC"
+    },
+    {
+      "name": "sun_type7_usb",
+      "description": "Sun Type 7 USB",
+      "vendor": "Sun Microsystems"
+    },
+    {
+      "name": "sun_type7_euro_usb",
+      "description": "Sun Type 7 USB (European layout)",
+      "vendor": "Sun Microsystems"
+    },
+    {
+      "name": "sun_type7_unix_usb",
+      "description": "Sun Type 7 USB (Unix layout)",
+      "vendor": "Sun Microsystems"
+    },
+    {
+      "name": "sun_type7_jp_usb",
+      "description": "Sun Type 7 USB (Japanese layout) / Japanese 106-key",
+      "vendor": "Sun Microsystems"
+    },
+    {
+      "name": "sun_type6_usb",
+      "description": "Sun Type 6/7 USB",
+      "vendor": "Sun Microsystems"
+    },
+    {
+      "name": "sun_type6_euro_usb",
+      "description": "Sun Type 6/7 USB (European layout)",
+      "vendor": "Sun Microsystems"
+    },
+    {
+      "name": "sun_type6_unix_usb",
+      "description": "Sun Type 6 USB (Unix layout)",
+      "vendor": "Sun Microsystems"
+    },
+    {
+      "name": "sun_type6_jp_usb",
+      "description": "Sun Type 6 USB (Japanese layout)",
+      "vendor": "Sun Microsystems"
+    },
+    {
+      "name": "sun_type6_jp",
+      "description": "Sun Type 6 (Japanese layout)",
+      "vendor": "Sun Microsystems"
+    },
+    {
+      "name": "targa_v811",
+      "description": "Targa Visionary 811",
+      "vendor": "Targa"
+    },
+    {
+      "name": "unitekkb1925",
+      "description": "Unitek KB-1925",
+      "vendor": "Unitek Group"
+    },
+    {
+      "name": "compalfl90",
+      "description": "FL90",
+      "vendor": "Compal Electronics Inc."
+    },
+    {
+      "name": "creativedw7000",
+      "description": "Creative Desktop Wireless 7000",
+      "vendor": "Creative"
+    },
+    {
+      "name": "intelligent_keyboard_k04",
+      "description": "Intelligent Keyboard K04",
+      "vendor": "Generic"
+    },
+    {
+      "name": "htcdream",
+      "description": "Htc Dream phone",
+      "vendor": "htc"
+    }
+  ]
+}
