@@ -6,16 +6,23 @@
 		});
 	};
 	
-	var loadEnvsUrl = "loadEnvs?objectId={0}";
-	var getEmilEnvironmentUrl = "getEmilEnvironment?envId={0}";
-	var getAllEnvsUrl = "getAllEnvironments";
-	var metadataUrl = "getObjectMetadata?objectId={0}";
-	var startEnvWithDigitalObjectUrl = "startEnvWithDigitalObject?objectId={0}&envId={1}&language={2}&layout={3}";
-	var stopUrl = "stop?sessionId={0}";
-	var screenshotUrl = "screenshot?sessionId={0}";
-	var mediaCollectionURL = "getCollectionList?objectId={0}";
-	var changeMediaURL = "changeMedia?sessionId={0}&objectId={1}&driveId={2}&label={3}";
-	var getObjectListURL = "getObjectList";
+	
+	// EMIL core api
+	var startEnvWithDigitalObjectUrl = "Emil/startEnvWithDigitalObject?objectId={0}&envId={1}&language={2}&layout={3}";
+	var stopUrl = "Emil/stop?sessionId={0}";
+	var screenshotUrl = "Emil/screenshot?sessionId={0}";
+	var changeMediaURL = "Emil/changeMedia?sessionId={0}&objectId={1}&driveId={2}&label={3}";
+	
+	// object data connector
+	var mediaCollectionURL = "EmilObjectData/mediaDescription?objectId={0}";
+	var loadEnvsUrl = "EmilObjectData/environments?objectId={0}";
+	var metadataUrl = "EmilObjectData/metadata?objectId={0}";
+	var getObjectListURL = "EmilObjectData/list";
+	
+	// environments data connector
+	var getAllEnvsUrl = "EmilEnvironmentData/getAllEnvironments";
+	var getEmilEnvironmentUrl = "EmilEnvironmentData/environment?envId={0}";
+	
 	
 	angular.module('emilUI', ['angular-loading-bar', 'ngSanitize', 'ngAnimate', 'ngCookies', 'ui.router', 'ui.bootstrap', 'ui.select', 'angular-growl', 
 				   'dibari.angular-ellipsis', 'ui.bootstrap.contextMenu', 'pascalprecht.translate', 'smart-table', 'angular-page-visibility'])

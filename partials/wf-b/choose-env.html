@@ -1,5 +1,5 @@
 
-<div ng-if="!!chooseEnvCtrl.noSuggestion">
+<div ng-if="!chooseEnvCtrl.noSuggestion">
 <p>{{'CHOOSE_ENV_PROPOSAL' | translate: chooseEnvCtrl}}</p>
 <p><b>{{chooseEnvCtrl.environments[0].label}}</b></p>
 <button type="button" class="btn btn-primary" ui-sref="wf-b.emulator({envId:chooseEnvCtrl.environments[0].id})">{{'CHOOSE_ENV_BTN_PROPOSAL' | translate}}</button>
