@@ -71,12 +71,32 @@
 		$translateProvider.determinePreferredLanguage();
 		// $translateProvider.preferredLanguage('en');
 
+		var httpResponseErrorModal = null;
+
 		// Add a global AJAX error handler
-		$httpProvider.interceptors.push(function($q, $injector) {
+		$httpProvider.interceptors.push(function($q, $injector, $timeout) {
 			return {
-				responseError: function(rejection) {
-					$injector.get('$state').go('error', {errorMsg: {title: "Server Error", message: rejection}});
-					return $q.reject(rejection);
+				responseError: function(rejection) {					
+					if (httpResponseErrorModal === null) {
+						httpResponseErrorModal = $injector.get('$uibModal').open({
+							animation: true,
+							backdrop: 'static',
+							templateUrl: 'partials/server-error-dialog.html'
+						});
+					}					
+
+					return $timeout(function() {
+						var $http = $injector.get('$http');
+
+						var req = $http(rejection.config);
+						req.then(function() {
+							if (httpResponseErrorModal !== null) {
+								httpResponseErrorModal.close();
+								httpResponseErrorModal = null;
+							}
+						});
+						return req;
+					}, 5000);
 				}
 			};
 		});

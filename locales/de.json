@@ -9,6 +9,9 @@
 
   "OVERVIEW_L" : "Objekte",
   "OVERVIEW_SEARCH" : "Eintippen zum Suchen...",
+
+  "ERROR_MODAL_TITLE": "Information",
+  "ERROR_MODAL_TEXT": "Momentan ist der EAAS Dienst nicht bereit. Sobald der Dienst bereit ist können sie automatisch fortfahren.",
   
   "ERROR_RETURN_BTN" : "Zurück zur Übersicht",
 

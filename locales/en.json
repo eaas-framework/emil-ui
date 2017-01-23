@@ -9,6 +9,9 @@
 
   "OVERVIEW_L" : "Objects",
   "OVERVIEW_SEARCH" : "Search...",
+
+  "ERROR_MODAL_TITLE": "Information",
+  "ERROR_MODAL_TEXT": "The EAAS service is currently not ready. As soon as it becomes ready you can automatically resume.",
   
   "ERROR_RETURN_BTN" : "Back to overview",
 
